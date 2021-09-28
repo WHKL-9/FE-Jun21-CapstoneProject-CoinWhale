@@ -8,10 +8,16 @@ import {
 } from "react-router-dom";
 import Homepage from "./components/Homepage";
 import MyFooter from "./components/MyFooter";
-import {useEffect} from "react"
-import getCoinData from "./apis/coinGeckoSearch";
+import SpecificCoin from "./components/SpecificCoin";
+import getTwitterData from "./apis/twitter";
+import { useEffect } from "react";
 
 function App() {
+  //testing twitter api
+  useEffect(() => {
+    getTwitterData();
+  }, []);
+
   return (
     <Router>
       <MyNavBar />
@@ -21,8 +27,13 @@ function App() {
           exact
           render={(routerProps) => <Homepage {...routerProps} />}
         />
+        <Route
+          path="/coin/:id"
+          exact
+          render={(routerProps) => <SpecificCoin {...routerProps} />}
+        />
       </Switch>
-      <MyFooter/>
+      <MyFooter />
     </Router>
   );
 }

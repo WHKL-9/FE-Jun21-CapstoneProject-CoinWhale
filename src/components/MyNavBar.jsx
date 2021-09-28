@@ -13,7 +13,7 @@ const MyNavBar = () => (
     </Navbar.Brand>
     <Nav className="ml-auto">
       <Nav.Link className="text-white">Discover Coin</Nav.Link>
-      <Nav.Link className="text-white">Learn</Nav.Link>
+      <Nav.Link className="text-white">Convert</Nav.Link>
     </Nav>
   </Navbar>
 );

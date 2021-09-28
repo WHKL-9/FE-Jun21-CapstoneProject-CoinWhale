@@ -37,6 +37,7 @@
   }
 }
 
+/* Navbar */
 .myNavBar{
   background-color: #333640;
   height: 4.5rem;
@@ -57,8 +58,9 @@
   width: 2rem;
 }
 
+/* Footer */
 .footerContainer{
-  background-color: #333640;
+  background-color: #343A40;
   position: relative;
   bottom: 0;
   height: 5rem;
@@ -67,4 +69,32 @@
 .copyrightText{
   font-size: 0.8rem;
   color: white;
+  margin-bottom: 0;
 }
+
+.footerCol{
+  margin-bottom: 0 !important;
+}
+
+/* Homepage */
+/* .Favorite{
+  background-color: transparent !important;
+  color: #315AED !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+.Favorite:hover{
+  background-color: transparent !important;
+  color: blue !important;
+  box-shadow: none !important;
+  border: none !important;
+  transform: scale(1.5)
+} */
+
+#coinTable{
+  border-collapse: collapse !important;
+  border-top: none !important;
+}
+
+
