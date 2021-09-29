@@ -8,15 +8,11 @@ import {
 } from "react-router-dom";
 import Homepage from "./components/Homepage";
 import MyFooter from "./components/MyFooter";
-import SpecificCoin from "./components/SpecificCoin";
-import getTwitterData from "./apis/twitter";
-import { useEffect } from "react";
+import CoinDetails from "./components/CoinDetails";
+
+
 
 function App() {
-  //testing twitter api
-  useEffect(() => {
-    getTwitterData();
-  }, []);
 
   return (
     <Router>
@@ -30,7 +26,7 @@ function App() {
         <Route
           path="/coin/:id"
           exact
-          render={(routerProps) => <SpecificCoin {...routerProps} />}
+          render={(routerProps) => <CoinDetails {...routerProps} />}
         />
       </Switch>
       <MyFooter />
