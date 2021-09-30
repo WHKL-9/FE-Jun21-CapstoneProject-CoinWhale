@@ -26,6 +26,7 @@ const CoinDetails = ({ fetchSpecificCoin, coinDetails, loading, error }) => {
   }, []);
 
   return (
+    // not 100% fully functional 
     <>
       {loading && <MyLoader />}
       {coinDetails ? (
