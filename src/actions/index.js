@@ -72,3 +72,14 @@ export const fetchCoinDetails = (coin) => {
     getCoinDetail()
   };
 };
+
+
+export const addCoinToFavorite = (coin) => ({
+  type: "ADD_COIN_TO_FAVORITE",
+  payload: coin
+})
+
+export const deleteCoinFromFavorite = (index) => ({
+  type: "REMOVE_COIN_FROM_FAVORITE",
+  payload: index
+})

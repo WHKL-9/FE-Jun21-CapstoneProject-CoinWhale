@@ -1,11 +1,12 @@
 import { useParams, Link } from "react-router-dom";
-import { fetchCoinDetails } from "../actions";
+import { fetchCoinDetails, addCoinToFavorite } from "../actions";
 import { useEffect } from "react";
 import { connect } from "react-redux";
 import { Card, Button, Container, Row, Col } from "react-bootstrap";
 import MyLoader from "./Loader";
 import "../App.css";
 import Whale from "../assets/SpoutingWhale.png";
+import CoinCarousel from "./CoinCarousel";
 
 const mapStateToProps = (state) => ({
   coinDetails: state.coinDetails.details.data,
@@ -15,9 +16,18 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   fetchSpecificCoin: (coin) => dispatch(fetchCoinDetails(coin)),
+  addToFavorite: (coin) => dispatch(addCoinToFavorite(coin)),
 });
 
-const CoinDetails = ({ fetchSpecificCoin, coinDetails, loading, error }) => {
+
+
+const CoinDetails = ({
+  fetchSpecificCoin,
+  coinDetails,
+  loading,
+  error,
+  addToFavorite,
+}) => {
   const params = useParams();
   const coinQuery = params.id.toLowerCase();
 
@@ -26,7 +36,7 @@ const CoinDetails = ({ fetchSpecificCoin, coinDetails, loading, error }) => {
   }, []);
 
   return (
-    // not 100% fully functional 
+    // not 100% fully functional
     <>
       {loading && <MyLoader />}
       {coinDetails ? (
@@ -34,9 +44,12 @@ const CoinDetails = ({ fetchSpecificCoin, coinDetails, loading, error }) => {
           <Card>
             <Button
               variant="outline-primary"
-              className="d-flex flex-row align-items-center mt-2 mr-2 ml-auto"
+              className="d-flex flex-row align-items-center mt-2 mr-2 ml-auto FavoriteButton"
+              type="button"
+              onClick={()=>addToFavorite(coinDetails)}
             >
-              <img src={Whale} alt="whale" className="FavoriteWhale" />
+              <img src={Whale} alt="whale" className="FavoriteWhale mr-2" />
+            Add to Favorite
             </Button>
             <div className="text-center">
               <Card.Img
@@ -89,6 +102,8 @@ const CoinDetails = ({ fetchSpecificCoin, coinDetails, loading, error }) => {
               </Card.Text>
             </Card.Body>
           </Card>
+
+          <CoinCarousel />
         </Container>
       ) : (
         <MyLoader />

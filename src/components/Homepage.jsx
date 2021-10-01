@@ -1,6 +1,9 @@
 import { useEffect } from "react";
 import { connect } from "react-redux";
-import { fetchCoinData } from "../actions";
+import {
+  fetchCoinData,
+  // fetchCoinDetails
+} from "../actions";
 import { Container, Table, Button } from "react-bootstrap";
 import "../App.css";
 import { Link } from "react-router-dom";
@@ -9,23 +12,30 @@ import MyLoader from "./Loader";
 const mapStateToProps = (state) => ({
   coins: state.coins.results.data,
   loading: state.coins.loading,
-  error: state.coins.error
+  error: state.coins.error,
 });
 
 const mapDispatchToProps = (dispatch) => ({
   fetchCoins: () => dispatch(fetchCoinData()),
+  // fetchSpecificCoin: (coin) => dispatch(fetchCoinDetails(coin)),
 });
 
-const Homepage = ({ fetchCoins, coins, loading, error }) => {
+const Homepage = ({ fetchCoins, coins, loading, error, fetchSpecificCoin }) => {
   useEffect(() => {
     fetchCoins();
   }, []);
 
+  // this hack to load the coin details page doesn't work
+
+  // useEffect(() => {
+  //   fetchSpecificCoin('bitcoin');
+  // }, []);
+
   return (
     <>
       {loading && <MyLoader />}
-      {!coins.length>0 &&<MyLoader/>}
-      { coins.length>0 && (
+      {!coins.length > 0 && <MyLoader />}
+      {coins.length > 0 && (
         <Container className="my-4">
           <Table id="coinTable" hover size="sm">
             <thead>
@@ -67,7 +77,7 @@ const Homepage = ({ fetchCoins, coins, loading, error }) => {
             </tbody>
           </Table>
         </Container>
-      )} 
+      )}
     </>
   );
 };

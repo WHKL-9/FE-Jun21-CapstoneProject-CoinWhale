@@ -5,6 +5,7 @@ import storage from "redux-persist/lib/storage";
 import { encryptTransform } from "redux-persist-transform-encrypt";
 import coinSearchReducer from "../reducers/coinSearch";
 import specificCoinReducer from "../reducers/speficCoin";
+import favoriteReducer from "../reducers/favorite";
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
 
@@ -20,6 +21,9 @@ export const initialState = {
     loading: true,
     error: false,
   },
+  favorite: {
+    collection: []
+  }
 };
 
 const persistConfig = {
@@ -34,7 +38,8 @@ const persistConfig = {
 
 const bigReducer = combineReducers({
   coins: coinSearchReducer, 
-  coinDetails: specificCoinReducer
+  coinDetails: specificCoinReducer,
+  favorite: favoriteReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, bigReducer);

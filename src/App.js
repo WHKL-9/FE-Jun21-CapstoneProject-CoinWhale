@@ -9,6 +9,7 @@ import {
 import Homepage from "./components/Homepage";
 import MyFooter from "./components/MyFooter";
 import CoinDetails from "./components/CoinDetails";
+import FavoriteCoins from "./components/FavoriteCoins";
 
 
 
@@ -27,6 +28,11 @@ function App() {
           path="/coin/:id"
           exact
           render={(routerProps) => <CoinDetails {...routerProps} />}
+        />
+          <Route
+          path="/favorite"
+          exact
+          render={(routerProps) => <FavoriteCoins {...routerProps} />}
         />
       </Switch>
       <MyFooter />
