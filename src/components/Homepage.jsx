@@ -44,8 +44,8 @@ const Homepage = ({ fetchCoins, coins, loading, error, fetchSpecificCoin }) => {
                 <th>Coin</th>
                 <th>Symbol</th>
                 <th>Price(USD)</th>
-                <th>High - 24h</th>
                 <th>Low - 24h</th>
+                <th>High - 24h</th>
                 <th>Market Cap Change 24h(USD)</th>
                 <th>Market Cap(USD)</th>
               </tr>
@@ -66,9 +66,9 @@ const Homepage = ({ fetchCoins, coins, loading, error, fetchSpecificCoin }) => {
                       </Link>
                     </td>
                     <td>{coin.symbol}</td>
-                    <td>{coin.market_data.high_24h.usd}</td>
+                    <td>{coin.market_data.current_price.usd}</td>
                     <td>{coin.market_data.low_24h.usd}</td>
-                    <td>{coin.market_data.current_price.ars}</td>
+                    <td>{coin.market_data.high_24h.usd}</td>
                     <td>{coin.market_data.market_cap_change_24h}</td>
                     <td>{coin.market_data.market_cap.usd}</td>
                   </tr>

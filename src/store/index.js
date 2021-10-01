@@ -12,7 +12,9 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
 // declaring the initial state
 export const initialState = {
   coins: {
-    results: [],
+    results: {
+      data:[]
+    },
     loading: true,
     error: false,
   },
