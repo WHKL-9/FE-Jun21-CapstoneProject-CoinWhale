@@ -51,7 +51,7 @@ export const fetchCoinDetails = (coin) => {
     
       setTimeout(() => {
         dispatch({
-          type: "FETCH_COIN_DATA",
+          type: "FETCH_COIN_DETAIL",
           payload: data,
         });
 

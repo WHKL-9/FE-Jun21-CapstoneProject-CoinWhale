@@ -2,7 +2,7 @@ import { initialState } from "../store";
 
 const specificCoinReducer = (state = initialState.coinDetails, action) => {
     switch(action.type){
-        case "FETCH_COIN_DATA":
+        case "FETCH_COIN_DETAIL":
             return {
                 ...state,
                 details: action.payload

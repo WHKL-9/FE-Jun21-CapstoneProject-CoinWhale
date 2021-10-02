@@ -10,10 +10,13 @@ import Homepage from "./components/Homepage";
 import MyFooter from "./components/MyFooter";
 import CoinDetails from "./components/CoinDetails";
 import FavoriteCoins from "./components/FavoriteCoins";
-
-
+import Tweets from "./components/Tweets";
+import {useEffect} from "react"
 
 function App() {
+  useEffect(() => {
+    Tweets();
+  }, []);
 
   return (
     <Router>
@@ -29,7 +32,7 @@ function App() {
           exact
           render={(routerProps) => <CoinDetails {...routerProps} />}
         />
-          <Route
+        <Route
           path="/favorite"
           exact
           render={(routerProps) => <FavoriteCoins {...routerProps} />}

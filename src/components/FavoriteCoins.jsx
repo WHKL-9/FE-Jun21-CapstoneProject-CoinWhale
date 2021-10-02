@@ -5,6 +5,7 @@ import { deleteCoinFromFavorite } from "../actions";
 import { IoRemoveCircle } from "react-icons/io5";
 import "../App.css";
 import LearningSection from "./LearningSection";
+import { useEffect } from "react";
 
 const mapStateToProps = (state) => ({
   favorite: state.favorite.collection,
@@ -15,6 +16,9 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 const FavoriteCoins = ({ favorite, deleteCoin }) => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <>
       <Container className="my-5">
@@ -24,22 +28,27 @@ const FavoriteCoins = ({ favorite, deleteCoin }) => {
             {favorite.length > 0 &&
               favorite.map((favoriteCoin, index) => {
                 return (
-                  <Card className="my-2 text-center favoriteCard" key={favoriteCoin.id}>
+                  <Card
+                    className="my-2 text-center favoriteCard"
+                    key={favoriteCoin.data.id}
+                  >
                     <Button
-                    variant="outline-danger" 
-                    className="removeButton ml-auto p-0 d-flex align-items-center justify-content-center"
-                    onClick={()=>deleteCoin(index)}
+                      variant="outline-danger"
+                      className="removeButton ml-auto p-0 d-flex align-items-center justify-content-center"
+                      onClick={() => deleteCoin(index)}
                     >
-                       <span className="m-0 p-0 removeCircle"><IoRemoveCircle/></span>
+                      <span className="m-0 p-0 removeCircle">
+                        <IoRemoveCircle />
+                      </span>
                     </Button>
                     <Card.Img
                       variant="top"
-                      src={favoriteCoin.image.large}
+                      src={favoriteCoin.data.image.large}
                       className="favoriteCoinImage mx-auto"
                     />
                     <Card.Body>
                       <Card.Title>
-                        {favoriteCoin.name} ({favoriteCoin.symbol})
+                        {favoriteCoin.data.name} ({favoriteCoin.data.symbol})
                       </Card.Title>
                     </Card.Body>
                   </Card>
@@ -47,7 +56,7 @@ const FavoriteCoins = ({ favorite, deleteCoin }) => {
               })}
           </Col>
           <Col xs={8}>
-            <LearningSection/>
+            <LearningSection />
           </Col>
         </Row>
       </Container>
