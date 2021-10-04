@@ -6,6 +6,7 @@ import { encryptTransform } from "redux-persist-transform-encrypt";
 import coinSearchReducer from "../reducers/coinSearch";
 import specificCoinReducer from "../reducers/speficCoin";
 import favoriteReducer from "../reducers/favorite";
+import tweetsReducer from "../reducers/twitter";
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
 
@@ -13,7 +14,7 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
 export const initialState = {
   coins: {
     results: {
-      data:[]
+      data: [],
     },
     loading: true,
     error: false,
@@ -24,8 +25,13 @@ export const initialState = {
     error: false,
   },
   favorite: {
-    collection: []
-  }
+    collection: [],
+  },
+  tweets: {
+    data: null,
+    loading: true,
+    error: false,
+  },
 };
 
 const persistConfig = {
@@ -39,9 +45,10 @@ const persistConfig = {
 };
 
 const bigReducer = combineReducers({
-  coins: coinSearchReducer, 
+  coins: coinSearchReducer,
   coinDetails: specificCoinReducer,
   favorite: favoriteReducer,
+  tweets: tweetsReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, bigReducer);

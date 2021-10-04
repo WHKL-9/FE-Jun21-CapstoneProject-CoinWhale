@@ -43,6 +43,7 @@
 .myNavBar {
   background-color: #333640;
   height: 4.5rem;
+  min-width: 100vw !important;
 }
 
 .logoDiv {

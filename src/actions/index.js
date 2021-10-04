@@ -83,3 +83,37 @@ export const deleteCoinFromFavorite = (index) => ({
   type: "REMOVE_COIN_FROM_FAVORITE",
   payload: index
 })
+
+export const fetchTweets = () => {
+  return (dispatch) => {
+   
+    const getTweets = async () => {
+      let data = await fetch("http://localhost:5000/tweets?q=twitterDev&count=10",{
+        method: 'GET',
+        mode: 'no-cors'
+      })
+      console.log(data)
+    
+      setTimeout(() => {
+        dispatch({
+          type: "FETCH _TWEETS",
+          payload: data,
+        });
+
+        dispatch(
+          {
+            type: "FETCH_TWEETS_LOADING",
+            payload: false,
+          },
+          1000
+        );
+
+        dispatch({
+          type: "FETCH_TWEETS_ERROR",
+          payload: false,
+        });
+      });
+    }
+    getTweets()
+  };
+};

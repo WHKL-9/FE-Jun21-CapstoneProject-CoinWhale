@@ -2,12 +2,13 @@ import { useEffect } from "react";
 import { connect } from "react-redux";
 import {
   fetchCoinData,
-  // fetchCoinDetails
+  fetchTweets
 } from "../actions";
 import { Container, Table, Button } from "react-bootstrap";
 import "../App.css";
 import { Link } from "react-router-dom";
 import MyLoader from "./Loader";
+
 
 const mapStateToProps = (state) => ({
   coins: state.coins.results.data,
@@ -17,19 +18,19 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   fetchCoins: () => dispatch(fetchCoinData()),
-  // fetchSpecificCoin: (coin) => dispatch(fetchCoinDetails(coin)),
+  fetchTweets: () => dispatch(fetchTweets())
 });
 
-const Homepage = ({ fetchCoins, coins, loading, error, fetchSpecificCoin }) => {
+const Homepage = ({ fetchCoins, coins, loading, error,  }) => {
   useEffect(() => {
     fetchCoins();
   }, []);
 
-  // this hack to load the coin details page doesn't work
+  useEffect(()=>{
+    fetchTweets()
+  },[])
 
-  // useEffect(() => {
-  //   fetchSpecificCoin('bitcoin');
-  // }, []);
+
 
   return (
     <>
