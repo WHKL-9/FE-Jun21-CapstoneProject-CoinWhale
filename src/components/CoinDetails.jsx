@@ -7,6 +7,7 @@ import MyLoader from "./Loader";
 import "../App.css";
 import Whale from "../assets/SpoutingWhale.png";
 import CoinCarousel from "./CoinCarousel";
+import CoinDescription from "./CoinDescription";
 
 const mapStateToProps = (state) => ({
   coinDetails: state.coinDetails.details,
@@ -70,9 +71,7 @@ const CoinDetails = ({
                   <Col xs={12}>
                     <span>
                       <h6>Description: </h6>
-                      <p className="coinDescription">
-                        {coinDetails.data.description.en}
-                      </p>
+                      <CoinDescription/>
                     </span>
                   </Col>
                   <Col xs={6}>

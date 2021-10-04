@@ -1,15 +1,15 @@
 import {connect} from "react-redux"
 
 const mapStateToProps = (state) => ({
-    coins: state.coins.results.data,
+  coinDetails: state.coinDetails.details,
 })
 
-function createMarkup() {
-  return { __html: "First &middot; Second" };
+function createMarkup({coinDetails}) {
+  return { __html: `${coinDetails.data.description.en}`};
 }
 
-function MyComponent() {
-  return <div dangerouslySetInnerHTML={createMarkup()} />;
+function CoinDescription({coinDetails}) {
+  return <p dangerouslySetInnerHTML={createMarkup({coinDetails})} />;
 }
 
-export default connect(mapStateToProps)(MyComponent)
+export default connect(mapStateToProps)(CoinDescription)
