@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { Button } from "react-bootstrap";
 import { useEffect } from "react";
+import Tweets from "./Tweets";
 
 const mapStateToProps = (state) => ({
   favorite: state.favorite.collection,
@@ -10,11 +11,11 @@ const mapStateToProps = (state) => ({
 const LearningSection = ({ favorite }) => {
 
   return (
-    <section>
-      <h5 className="text-center">
+    <section className="ml-5">
+      <h5>
         Learn Something About (add typewriter effect){" "}
       </h5>
-      <div className="text-center">
+      <div>
         {favorite.length > 0 &&
           favorite.map((coin) => {
             return (
@@ -27,6 +28,9 @@ const LearningSection = ({ favorite }) => {
               </Button>
             );
           })}
+      </div>
+      <div className="mt-5">
+        <Tweets/>
       </div>
     </section>
   );

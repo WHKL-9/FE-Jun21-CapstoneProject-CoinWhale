@@ -21,7 +21,7 @@ const mapDispatchToProps = (dispatch) => ({
   fetchTweets: () => dispatch(fetchTweets())
 });
 
-const Homepage = ({ fetchCoins, coins, loading, error,  }) => {
+const Homepage = ({ fetchCoins, coins, loading, error,  fetchTweets}) => {
   useEffect(() => {
     fetchCoins();
   }, []);
@@ -37,7 +37,7 @@ const Homepage = ({ fetchCoins, coins, loading, error,  }) => {
       {loading && <MyLoader />}
       {!coins.length > 0 && <MyLoader />}
       {coins.length > 0 && (
-        <Container className="my-4">
+        <Container  className="my-4 HomepageContainer">
           <Table id="coinTable" hover size="sm">
             <thead>
               <tr className="text-center">

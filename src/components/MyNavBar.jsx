@@ -18,7 +18,7 @@ const MyNavBar = () => (
     <Nav className="ml-auto">
       <p className="text-white mr-2">Discover Coin</p>
       <Link to="/favorite">
-        <p className="text-white">Favorite</p>
+        <p className="text-white mr-2">Favorite</p>
       </Link>
     </Nav>
   </Navbar>

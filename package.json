@@ -9,6 +9,7 @@
     "axios": "^0.21.4",
     "bootstrap": "^4.6.0",
     "coingecko-api": "^1.0.10",
+    "date-fns": "^2.24.0",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "persist": "^0.2.7",

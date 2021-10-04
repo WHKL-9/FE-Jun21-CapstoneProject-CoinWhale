@@ -10,14 +10,9 @@ import Homepage from "./components/Homepage";
 import MyFooter from "./components/MyFooter";
 import CoinDetails from "./components/CoinDetails";
 import FavoriteCoins from "./components/FavoriteCoins";
-import Tweets from "./components/Tweets";
-import {useEffect} from "react"
+import { useEffect } from "react";
 
 function App() {
-  useEffect(() => {
-    Tweets();
-  }, []);
-
   return (
     <Router>
       <MyNavBar />

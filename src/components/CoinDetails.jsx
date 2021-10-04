@@ -6,7 +6,7 @@ import { Card, Button, Container, Row, Col } from "react-bootstrap";
 import MyLoader from "./Loader";
 import "../App.css";
 import Whale from "../assets/SpoutingWhale.png";
-import CoinCarousel from "./CoinCarousel";
+import CoinsContainer from "./CoinsContainer";
 import CoinDescription from "./CoinDescription";
 
 const mapStateToProps = (state) => ({
@@ -32,14 +32,13 @@ const CoinDetails = ({
 
   useEffect(() => {
     fetchSpecificCoin(coinQuery);
-  }, []);
+  }, [coinQuery]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, []);
+  }, [coinQuery]);
 
   return (
-    // not 100% fully functional
     <>
       {loading && <MyLoader />}
       {coinDetails ? (
@@ -71,7 +70,9 @@ const CoinDetails = ({
                   <Col xs={12}>
                     <span>
                       <h6>Description: </h6>
-                      <CoinDescription/>
+                      <span>
+                        <CoinDescription />
+                      </span>
                     </span>
                   </Col>
                   <Col xs={6}>
@@ -110,7 +111,7 @@ const CoinDetails = ({
             </Card.Body>
           </Card>
 
-          <CoinCarousel />
+          <CoinsContainer />
         </Container>
       ) : (
         <MyLoader />

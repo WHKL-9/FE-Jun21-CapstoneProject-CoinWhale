@@ -1,4 +1,4 @@
-// fetch all coins 
+// fetch all coins
 export const fetchCoinData = () => {
   return (dispatch) => {
     //1. Import coingecko-api
@@ -47,8 +47,8 @@ export const fetchCoinDetails = (coin) => {
 
     const getCoinDetail = async () => {
       let data = await CoinGeckoClient.coins.fetch(`${coin}`, {});
-      console.log(data)
-    
+      console.log(data);
+
       setTimeout(() => {
         dispatch({
           type: "FETCH_COIN_DETAIL",
@@ -68,52 +68,57 @@ export const fetchCoinDetails = (coin) => {
           payload: false,
         });
       });
-    }
-    getCoinDetail()
+    };
+    getCoinDetail();
   };
 };
 
-
 export const addCoinToFavorite = (coin) => ({
   type: "ADD_COIN_TO_FAVORITE",
-  payload: coin
-})
+  payload: coin,
+});
 
 export const deleteCoinFromFavorite = (index) => ({
   type: "REMOVE_COIN_FROM_FAVORITE",
-  payload: index
-})
+  payload: index,
+});
 
 export const fetchTweets = () => {
   return (dispatch) => {
-   
     const getTweets = async () => {
-      let data = await fetch("http://localhost:5000/tweets?q=twitterDev&count=10",{
-        method: 'GET',
-        mode: 'no-cors'
-      })
-      console.log(data)
-    
-      setTimeout(() => {
-        dispatch({
-          type: "FETCH _TWEETS",
-          payload: data,
-        });
+      let response = await fetch(
+        "http://localhost:5000/tweets?q=twitterDev&count=10",
+        {
+          method: "GET",
+        }
+      );
+      if(response.ok){
+        let data = await response.json()
+        console.log(data);
 
-        dispatch(
-          {
-            type: "FETCH_TWEETS_LOADING",
+        setTimeout(() => {
+          dispatch({
+            type: "FETCH _TWEETS",
+            payload: data,
+          });
+  
+          dispatch(
+            {
+              type: "FETCH_TWEETS_LOADING",
+              payload: false,
+            },
+            1000
+          );
+  
+          dispatch({
+            type: "FETCH_TWEETS_ERROR",
             payload: false,
-          },
-          1000
-        );
-
-        dispatch({
-          type: "FETCH_TWEETS_ERROR",
-          payload: false,
+          });
         });
-      });
-    }
-    getTweets()
+      }
+
+     
+    };
+    getTweets();
   };
 };

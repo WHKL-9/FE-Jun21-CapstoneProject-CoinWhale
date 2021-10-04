@@ -29,6 +29,11 @@
   color: #61dafb;
 }
 
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -38,12 +43,14 @@
   }
 }
 
+
+
 /* Navbar */
 
 .myNavBar {
   background-color: #333640;
   height: 4.5rem;
-  min-width: 100vw !important;
+  width: 100vw !important;
 }
 
 .logoDiv {
@@ -67,6 +74,7 @@
   position: relative;
   bottom: 0;
   height: 5rem;
+  width: 100vw !important;
 }
 
 .copyrightText {
@@ -81,6 +89,9 @@
 
 /* Homepage */
 
+.HomepageContainer{
+  width: 100vw!important;
+}
 
 #coinTable {
   border-collapse: collapse !important;
@@ -130,4 +141,18 @@
   border: none !important; 
 } 
 
+/* CoinRows */
 
+.CoinCards{
+  width: 10rem;
+}
+
+.CoinRowsImages{
+  width: 4rem !important;
+  height: 4rem !important;
+}
+
+/* Tweets */
+.TwitterLogo{
+  color: #1C9CEA;
+}
