@@ -156,3 +156,27 @@ body {
 .TwitterLogo{
   color: #1C9CEA;
 }
+
+.UserImage{
+  border-radius: 50%;
+  transform: scale(1.1)
+}
+
+.TweetCard{
+  background: #343a40;
+}
+
+.favoriteTweet{
+  color: white !important;
+}
+
+/* Learning Section */
+.TypeWriterText{
+  color: blue
+}
+
+/* Typewriter */
+.TypewriterCoin{
+  color: blue;
+}
+
