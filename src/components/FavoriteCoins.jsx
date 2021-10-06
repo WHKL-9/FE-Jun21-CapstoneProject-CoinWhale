@@ -3,6 +3,7 @@ import { Card, Button, Container, Row, Col } from "react-bootstrap";
 import { connect } from "react-redux";
 import { deleteCoinFromFavorite } from "../actions";
 import { IoRemoveCircle } from "react-icons/io5";
+import { AiFillHeart } from "react-icons/ai";
 import "../App.css";
 import LearningSection from "./LearningSection";
 import { useEffect } from "react";
@@ -24,34 +25,40 @@ const FavoriteCoins = ({ favorite, deleteCoin }) => {
       <Container className="my-5">
         <Row>
           <Col xs={4}>
-            <h6>Favorite Coin Collection</h6>
+            <h4 className="text-white d-flex flex-row align-items-center">
+              <span className="mr-2 d-flex align-items-center heartCoin">
+                <AiFillHeart />
+              </span>
+              <span >Collection</span>
+            </h4>
             {favorite.length > 0 &&
               favorite.map((favoriteCoin, index) => {
                 return (
-                  <Card
-                    className="my-2 text-center favoriteCard"
-                    key={favoriteCoin.data.id}
-                  >
-                    <Button
-                      variant="outline-danger"
-                      className="removeButton ml-auto p-0 d-flex align-items-center justify-content-center"
-                      onClick={() => deleteCoin(index)}
+                  <Container className="pl-0 favoriteCardContainer">
+                    <Card
+                      className="my-2 text-center favoriteCard"
+                      key={favoriteCoin.data.id}
                     >
-                      <span className="m-0 p-0 removeCircle">
-                        <IoRemoveCircle />
-                      </span>
-                    </Button>
-                    <Card.Img
-                      variant="top"
-                      src={favoriteCoin.data.image.large}
-                      className="favoriteCoinImage mx-auto"
-                    />
-                    <Card.Body>
-                      <Card.Title>
-                        {favoriteCoin.data.name} ({favoriteCoin.data.symbol})
-                      </Card.Title>
-                    </Card.Body>
-                  </Card>
+                      <Button
+                        className="removeButton ml-auto p-0 d-flex align-items-center justify-content-center"
+                        onClick={() => deleteCoin(index)}
+                      >
+                        <span className="m-0 p-0 removeCircle">
+                          <IoRemoveCircle />
+                        </span>
+                      </Button>
+                      <Card.Img
+                        variant="top"
+                        src={favoriteCoin.data.image.large}
+                        className="favoriteCoinImage mx-auto"
+                      />
+                      <Card.Body>
+                        <Card.Title className="text-white">
+                          {favoriteCoin.data.name} ({favoriteCoin.data.symbol})
+                        </Card.Title>
+                      </Card.Body>
+                    </Card>
+                  </Container>
                 );
               })}
           </Col>

@@ -30,6 +30,10 @@ const CoinDetails = ({
   const params = useParams();
   const coinQuery = params.id.toLowerCase();
 
+  // default mode: set character limit -> show more
+  //after showing more -> show less
+  //button to control show more or show less
+
   useEffect(() => {
     fetchSpecificCoin(coinQuery);
   }, [coinQuery]);
@@ -50,43 +54,49 @@ const CoinDetails = ({
               type="button"
               onClick={() => addToFavorite(coinDetails)}
             >
-              <img src={Whale} alt="whale" className="FavoriteWhale mr-2" />
-              Add to Favorite
+              <img src={Whale} alt="whale" className="FavoriteWhale" />
             </Button>
-            <div className="text-center">
-              <Card.Img
-                variant="top"
-                src={coinDetails.data.image.large}
-                className="coinImage mt-2"
-              />
-            </div>
+            <Row>
+              <Col xs={4}>
+                <Card.Img
+                  variant="top"
+                  src={coinDetails.data.image.large}
+                  className="coinImage mt-2 ml-4"
+                />
+              </Col>
+              <Col xs={6}>
+                <div className="slidecontainer text-center">
+                  <div className="d-flex flex-row">
+                    <span>{coinDetails.data.market_data.low_24h.usd}</span>
+                    <span className="ml-auto">{coinDetails.data.market_data.high_24h.usd}</span>
+                  </div>
+                  <input
+                    type="range"
+                    min={coinDetails.data.market_data.low_24h.usd}
+                    max={coinDetails.data.market_data.high_24h.usd}
+                    value={coinDetails.data.market_data.current_price.usd}
+                    className="slider priceSlider"
+                    id="myRange"
+                  />
+                </div>
+                Current Price: ${coinDetails.data.market_data.current_price.usd}
+              </Col>
+            </Row>
 
             <Card.Body>
-              <Card.Title className="text-center">
-                {coinDetails.data.name} ({coinDetails.data.symbol})
-              </Card.Title>
               <Card.Text>
                 <Row className="mx-auto">
-                  <Col xs={12}>
-                    <span>
-                      <h6>Description: </h6>
-                      <span>
-                        <CoinDescription />
-                      </span>
-                    </span>
-                  </Col>
-                  <Col xs={6}>
+                  <Col xs={4}>
                     <p>
-                      Price: ${coinDetails.data.market_data.current_price.usd}
+                      Coin: {coinDetails.data.name} ({coinDetails.data.symbol})
                     </p>
+
                     <p>ATH: ${coinDetails.data.market_data.ath.usd}</p>
                     <p>Market Cap Rank: {coinDetails.data.market_cap_rank}</p>
                     <p>
                       Market Cap: ${coinDetails.data.market_data.market_cap.usd}
                     </p>
                     <p>Homepage: {coinDetails.data.links.homepage[0]}</p>
-                  </Col>
-                  <Col xs={6}>
                     <p>Category: {coinDetails.data.categories[0]}</p>
                     <p>
                       Github:{" "}
@@ -105,6 +115,14 @@ const CoinDetails = ({
                     <p>
                       Developer's forks: {coinDetails.data.developer_data.forks}
                     </p>
+                  </Col>
+                  <Col xs={8} className="pr-3">
+                    <span>
+                      <h6>Description: </h6>
+                      <span>
+                        <CoinDescription />
+                      </span>
+                    </span>
                   </Col>
                 </Row>
               </Card.Text>

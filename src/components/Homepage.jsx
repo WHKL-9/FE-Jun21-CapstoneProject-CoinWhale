@@ -1,14 +1,10 @@
 import { useEffect } from "react";
 import { connect } from "react-redux";
-import {
-  fetchCoinData,
-  fetchTweets
-} from "../actions";
+import { fetchCoinData, fetchTweets } from "../actions";
 import { Container, Table, Button } from "react-bootstrap";
 import "../App.css";
 import { Link } from "react-router-dom";
 import MyLoader from "./Loader";
-
 
 const mapStateToProps = (state) => ({
   coins: state.coins.results.data,
@@ -18,29 +14,31 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   fetchCoins: () => dispatch(fetchCoinData()),
-  fetchTweets: () => dispatch(fetchTweets())
+  fetchTweets: () => dispatch(fetchTweets()),
 });
 
-const Homepage = ({ fetchCoins, coins, loading, error,  fetchTweets}) => {
+const Homepage = ({ fetchCoins, coins, loading, error, fetchTweets }) => {
   useEffect(() => {
     fetchCoins();
   }, []);
 
-  useEffect(()=>{
-    fetchTweets()
-  },[])
+  const rounded = (number) => {
+    return Math.round((number + Number.EPSILON) * 100) / 100;
+  };
 
-
+  useEffect(() => {
+    fetchTweets();
+  }, []);
 
   return (
     <>
       {loading && <MyLoader />}
       {!coins.length > 0 && <MyLoader />}
       {coins.length > 0 && (
-        <Container  className="my-4 HomepageContainer">
+        <Container className="my-4 HomepageContainer">
           <Table id="coinTable" hover size="sm">
             <thead>
-              <tr className="text-center">
+              <tr className="text-center tableHead">
                 <th>#</th>
                 <th>Coin</th>
                 <th>Symbol</th>
@@ -51,18 +49,18 @@ const Homepage = ({ fetchCoins, coins, loading, error,  fetchTweets}) => {
                 <th>Market Cap(USD)</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody className="text-white tableBody">
               {coins.slice(0, 30).map((coin, index) => {
                 return (
-                  <tr key={coin.id} className="text-center">
+                  <tr key={coin.id} className="text-center tableCell">
                     <td>{index + 1}</td>
                     <td>
-                      <Link to={`/coin/${coin.id}`}>
+                      <Link to={`/coin/${coin.id}`} className="text-decoration-none">
                         <div className="d-flex flex-column align-items-center p-0 m-0">
                           <span>
                             {<img src={coin.image.small} alt={coin.id} />}
                           </span>
-                          <span>{coin.name}</span>
+                          <a className="text-decoration-none coinName">{coin.name}</a>
                         </div>
                       </Link>
                     </td>
@@ -70,7 +68,16 @@ const Homepage = ({ fetchCoins, coins, loading, error,  fetchTweets}) => {
                     <td>{coin.market_data.current_price.usd}</td>
                     <td>{coin.market_data.low_24h.usd}</td>
                     <td>{coin.market_data.high_24h.usd}</td>
-                    <td>{coin.market_data.market_cap_change_24h}</td>
+                    <td
+                      style={{
+                        color:
+                          coin.market_data.market_cap_change_24h > 0
+                            ? "#098551"
+                            : "#CF202F",
+                      }}
+                    >
+                      {coin.market_data.market_cap_change_24h}
+                    </td>
                     <td>{coin.market_data.market_cap.usd}</td>
                   </tr>
                 );

@@ -1,4 +1,3 @@
-
 .App {
   text-align: center;
 }
@@ -15,7 +14,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #080808;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -32,6 +31,13 @@
 body {
   max-width: 100%;
   overflow-x: hidden;
+  background: rgb(8, 8, 8);
+  background: linear-gradient(
+    0deg,
+    rgba(8, 8, 8, 1) 0%,
+    rgba(61, 61, 61, 1) 50%,
+    rgba(8, 8, 8, 1) 100%
+  );
 }
 
 @keyframes App-logo-spin {
@@ -43,12 +49,10 @@ body {
   }
 }
 
-
-
 /* Navbar */
 
 .myNavBar {
-  background-color: #333640;
+  background-color: #080808 !important;
   height: 4.5rem;
   width: 100vw !important;
 }
@@ -70,7 +74,7 @@ body {
 
 /* Footer */
 .footerContainer {
-  background-color: #343a40;
+  background-color: #080808;
   position: relative;
   bottom: 0;
   height: 5rem;
@@ -89,94 +93,212 @@ body {
 
 /* Homepage */
 
-.HomepageContainer{
-  width: 100vw!important;
+.HomepageContainer {
+  width: 100vw !important;
 }
 
 #coinTable {
   border-collapse: collapse !important;
-  border-top: none !important;
+  border: none !important;
+}
+
+.tableHead {
+  color: darkgray !important;
+  margin-bottom: 4rem !important;
 }
 
 .coinImage {
-  width: 12rem !important;
-  height: 12rem !important;
+  width: 8rem !important;
+  height: 8rem !important;
+}
+
+.coinName {
+  color: white;
+}
+
+.coinName:hover {
+  color: black;
+}
+
+table,
+tr,
+td,
+th {
+  border: none !important;
+}
+
+.tableCell:hover {
+  background-color: white !important;
+  color: black;
 }
 
 /* coin Details Page */
-.FavoriteWhale{
-  height: 1rem;
-  width: 1rem;
-  opacity: 0;
+.FavoriteButton {
+  border: none !important;
 }
 
-
-.FavoriteWhale:hover{
-  height: 1rem;
-  width: 1rem;
-  opacity: 1;
+.FavoriteButton:hover {
+  border: none !important;
+  background: transparent !important;
 }
 
+.FavoriteWhale {
+  height: 1.2rem;
+  width: 1.2rem;
+}
 
-.coinDescription{
+.FavoriteWhale:hover {
+  transform: scale(1.4);
+}
+
+.coinDescription {
   width: 75vw;
-  overflow:hidden;
+  overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-/* favorite coin */
-.favoriteCard{
-  min-width: 10rem !important;
+.slidecontainer {
+  width: 100%; /* Width of the outside container */
 }
 
-.favoriteCoinImage{
+/* The slider itself */
+.slider {
+  -webkit-appearance: none;  /* Override default CSS styles */
+  appearance: none;
+  width: 100%; /* Full-width */
+  height: 25px; /* Specified height */
+  background: #d3d3d3; /* Grey background */
+  outline: none; /* Remove outline */
+  opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+  -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+  transition: opacity .2s;
+}
+
+/* Mouse-over effects */
+.slider:hover {
+  opacity: 1; /* Fully shown on mouse-over */
+}
+
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  width: 25px; /* Set a specific slider handle width */
+  height: 25px; /* Slider handle height */
+  background: #04AA6D; /* Green background */
+  cursor: pointer; /* Cursor on hover */
+}
+
+.slider::-moz-range-thumb {
+  width: 25px; /* Set a specific slider handle width */
+  height: 25px; /* Slider handle height */
+  background: #04AA6D; /* Green background */
+  cursor: pointer; /* Cursor on hover */
+}
+
+
+
+/* favorite coin */
+.favoriteCardContainer {
+  padding-right: 7rem !important;
+}
+
+.favoriteCard {
+  background: transparent !important;
+  border: 1px solid lightgray !important;
+}
+
+.favoriteCoinImage {
   height: 4rem !important;
   width: 4rem !important;
 }
 
-.removeButton{
+.heartCoin {
+  color: #0052ff;
+}
+
+.heartCoin:hover {
+  transform: scale(1.2);
+}
+
+.removeButton {
   width: 2rem !important;
   height: 2rem !important;
-  border: none !important; 
-} 
+  border: none !important;
+  background-color: transparent !important;
+}
+
+.removeCircle {
+  color: red;
+}
+
+/* .favoriteCard:hover > .removeButton{
+  display: block
+
+} */
 
 /* CoinRows */
 
-.CoinCards{
+.CoinCards {
   width: 10rem;
 }
 
-.CoinRowsImages{
+.CoinRowsImages {
   width: 4rem !important;
   height: 4rem !important;
 }
 
+/* Learning Section */
+.coinButton {
+  background-color: #0052ff !important;
+  border: 1px solid #0052ff !important;
+  box-shadow: 2px 4px 3px #0052ff;
+}
+
+.coinButton:hover {
+  background-color: white !important;
+  border: 1px solid white !important;
+  box-shadow: 2px 4px 3px white;
+  color: black !important;
+}
+
+.coinButton:focus {
+  background-color: black;
+}
+
 /* Tweets */
-.TwitterLogo{
-  color: #1C9CEA;
+.TwitterLogo {
+  color: #1c9cea;
 }
 
-.UserImage{
+.UserImage {
   border-radius: 50%;
-  transform: scale(1.1)
+  transform: scale(1.1);
 }
 
-.TweetCard{
-  background: #343a40;
+.TweetCard {
+  background-color: transparent !important;
 }
 
-.favoriteTweet{
+.TweetCard:not(:last-child) {
+  border-bottom: 1px solid lightgray;
+}
+
+.TweetSection {
+  border: 1px solid lightgray;
+}
+
+.favoriteTweet {
   color: white !important;
 }
 
 /* Learning Section */
-.TypeWriterText{
-  color: blue
+.TypeWriterText {
+  color: #0052ff;
 }
 
 /* Typewriter */
-.TypewriterCoin{
-  color: blue;
+.TypewriterCoin {
+  color: #0052ff;
 }
-

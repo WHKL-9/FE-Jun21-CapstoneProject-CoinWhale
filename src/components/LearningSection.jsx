@@ -1,10 +1,11 @@
-import React from "react";
+import {useState, useEffect} from "react";
 import { connect } from "react-redux";
 import { Button } from "react-bootstrap";
 import Tweets from "./Tweets";
 import { fetchTweets } from "../actions";
 import Typewriter from "typewriter-effect";
 import "../App.css";
+import Youtube from "./Youtube";
 
 const mapStateToProps = (state) => ({
   favorite: state.favorite.collection,
@@ -15,18 +16,20 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 const LearningSection = ({ favorite, loadTweets }) => {
-  // how do I improve this section - takes too long to load
-  let getCoins = document.querySelectorAll(".coinButton");
-  let coinNames = [];
-  for (let i = 0; i < getCoins.length; i++) {
-    coinNames.push(getCoins[i].innerHTML);
-  }
+
+  const [coinNames, setCoinNames] = useState([])
+  useEffect(() => {
+    let coinNames = favorite.map(f => f.data.name)
+    setCoinNames(coinNames)
+  }, [favorite])
+
+
 
   return (
     <section className="ml-5">
-      <h5 className="d-flex flex-row">
-        <span className="mr-2"> Learn Something About</span>
-        <span className="TypewriterCoin">
+      <span className="d-flex flex-row">
+        <h5 className="mr-2 text-white"> Learn Something About</h5>
+        <h5 className="TypewriterCoin">
           <Typewriter
             options={{
               strings: coinNames,
@@ -34,8 +37,8 @@ const LearningSection = ({ favorite, loadTweets }) => {
               loop: true,
             }}
           />
-        </span>
-      </h5>
+        </h5>
+      </span>
 
       <div>
         {favorite.length > 0 &&
@@ -45,7 +48,6 @@ const LearningSection = ({ favorite, loadTweets }) => {
               {/* implement windows onload click on first button */}
                 <Button
                   key={coin.data.id}
-                  variant="outline-primary"
                   className="mr-2 mb-2 coinButton"
                   onClick={() => loadTweets(coin.data.id)}
                 >
@@ -57,6 +59,7 @@ const LearningSection = ({ favorite, loadTweets }) => {
       </div>
       <div className="mt-5">
         <Tweets />
+        <Youtube/>
       </div>
     </section>
   );
