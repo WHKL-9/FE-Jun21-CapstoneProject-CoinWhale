@@ -4,8 +4,8 @@ import CoinsRow from "./CoinsRow";
 
 const CoinsContainer= () => {
   return (
-    <Container className="mt-3 px-0">
-      <h6 className="text-white">People Also View</h6>
+    <Container className="mt-5 px-0">
+      <h5 className="text-white">People Also View</h5>
       <CoinsRow/>
     </Container>
   );

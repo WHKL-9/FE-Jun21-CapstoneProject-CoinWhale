@@ -46,8 +46,9 @@ const CoinDetails = ({
     <>
       {loading && <MyLoader />}
       {coinDetails ? (
-        <Container className="my-5">
-          <Card>
+        <Container className="my-5 text-white">
+          <Card className="coinDetailsCard">
+            <div className="hexagon"></div>
             <Button
               variant="outline-primary"
               className="d-flex flex-row align-items-center mt-2 mr-2 ml-auto FavoriteButton"
@@ -66,9 +67,15 @@ const CoinDetails = ({
               </Col>
               <Col xs={6}>
                 <div className="slidecontainer text-center">
-                  <div className="d-flex flex-row">
-                    <span>{coinDetails.data.market_data.low_24h.usd}</span>
-                    <span className="ml-auto">{coinDetails.data.market_data.high_24h.usd}</span>
+                  <div className="d-block text-left mb-1">
+                    <strong>Time frame:</strong> 24h
+                  </div>
+                  <div className="d-flex flex-row mb-2 sliderDiv">
+                    <span> ${coinDetails.data.market_data.low_24h.usd}</span>
+                    <span className="currentPrice">
+                      Current: ${coinDetails.data.market_data.current_price.usd}
+                    </span>
+                    <span>${coinDetails.data.market_data.high_24h.usd}</span>
                   </div>
                   <input
                     type="range"
@@ -79,7 +86,6 @@ const CoinDetails = ({
                     id="myRange"
                   />
                 </div>
-                Current Price: ${coinDetails.data.market_data.current_price.usd}
               </Col>
             </Row>
 
@@ -88,38 +94,55 @@ const CoinDetails = ({
                 <Row className="mx-auto">
                   <Col xs={4}>
                     <p>
-                      Coin: {coinDetails.data.name} ({coinDetails.data.symbol})
+                      <strong>Coin:</strong> {coinDetails.data.name} (
+                      {coinDetails.data.symbol})
                     </p>
 
-                    <p>ATH: ${coinDetails.data.market_data.ath.usd}</p>
-                    <p>Market Cap Rank: {coinDetails.data.market_cap_rank}</p>
                     <p>
-                      Market Cap: ${coinDetails.data.market_data.market_cap.usd}
+                      <strong>ATH:</strong> $
+                      {coinDetails.data.market_data.ath.usd}
                     </p>
-                    <p>Homepage: {coinDetails.data.links.homepage[0]}</p>
-                    <p>Category: {coinDetails.data.categories[0]}</p>
                     <p>
-                      Github:{" "}
+                      <strong>Market Cap Rank:</strong>{" "}
+                      {coinDetails.data.market_cap_rank}
+                    </p>
+                    <p>
+                      <strong>Market Cap:</strong> $
+                      {coinDetails.data.market_data.market_cap.usd}
+                    </p>
+                    <p>
+                      <strong>Homepage:</strong>{" "}
+                      {coinDetails.data.links.homepage[0]}
+                    </p>
+                    <p>
+                      <strong>Category:</strong>{" "}
+                      {coinDetails.data.categories[0]}
+                    </p>
+                    <p>
+                      <strong>Github:</strong>{" "}
                       {coinDetails.data.links.repos_url.github[0]
                         ? coinDetails.data.links.repos_url.github[0]
                         : "N/A"}
                     </p>
                     <p>
-                      Twitter followers:{" "}
+                      <strong>Twitter followers:</strong>{" "}
                       {coinDetails.data.community_data.twitter_followers}
                     </p>
                     <p>
-                      Reddit Average Post/48h:{" "}
+                      <strong>Reddit Average Post/48h:</strong>{" "}
                       {coinDetails.data.community_data.reddit_average_posts_48h}
                     </p>
                     <p>
-                      Developer's forks: {coinDetails.data.developer_data.forks}
+                      <strong>Developer's forks:</strong>{" "}
+                      {coinDetails.data.developer_data.forks}
                     </p>
                   </Col>
                   <Col xs={8} className="pr-3">
                     <span>
-                      <h6>Description: </h6>
-                      <span>
+                      <p className="mb-0">
+                        <strong>Description:</strong>{" "}
+                      </p>
+                      <span className="text-justify">
                         <CoinDescription />
                       </span>
                     </span>

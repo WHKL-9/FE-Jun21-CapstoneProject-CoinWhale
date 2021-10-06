@@ -15,7 +15,7 @@ const CoinsRow = ({ coins }) => {
       {coins.length > 0 &&
         coins.slice(0, 12).map((coin) => (
           <Col xs={2} className="d-flex flex-col justify-content-between mb-2">
-            <Link to={`/coin/${coin.id}`}>
+            <Link to={`/coin/${coin.id}`} className="text-decoration-none text-white">
                 <Card key={coin.id} className="text-center CoinCards ">
                   <Card.Img
                     variant="top"

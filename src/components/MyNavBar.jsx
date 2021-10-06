@@ -17,12 +17,12 @@ const MyNavBar = () => (
       </Link>
     </Navbar.Brand>
     <Nav className="ml-auto">
-      <Link to="/favorite">
+      <Link to="/favorite" className="text-decoration-none">
         <h6 className="text-white d-flex flex-row align-items-center mr-4">
           <span className="mr-2 d-flex align-items-center heartCoin">
             <AiFillHeart />
           </span>
-          <span>Collection</span>
+          Collection
         </h6>
       </Link>
     </Nav>
