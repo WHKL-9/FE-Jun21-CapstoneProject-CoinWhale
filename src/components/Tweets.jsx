@@ -5,6 +5,7 @@ import { MdFavorite } from "react-icons/md";
 import { FiShare } from "react-icons/fi";
 import "../App.css";
 import { connect } from "react-redux";
+import MyLoader from "./Loader";
 
 const mapStateToProps = (state) => ({
   tweets: state.tweets.data.statuses,
@@ -32,7 +33,8 @@ const Tweets = ({ tweets }) => {
                 </Col>
                 <Col xs={10} className=" ml-0 pl-0 pr-3">
                   <p className="mt-3 pr-1 mb-0 pb-0">
-                    {tweet.user.name} @{tweet.user.screen_name} {tweet.created_at}
+                    {tweet.user.name} @{tweet.user.screen_name}{" "}
+                    {tweet.created_at}
                   </p>
                   <p>{tweet.text}</p>
                 </Col>

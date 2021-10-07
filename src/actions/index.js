@@ -83,6 +83,7 @@ export const deleteCoinFromFavorite = (index) => ({
   payload: index,
 });
 
+// twitter
 export const fetchTweets = (coin) => {
   return (dispatch) => {
     const getTweets = async () => {
@@ -92,8 +93,8 @@ export const fetchTweets = (coin) => {
           method: "GET",
         }
       );
-      if(response.ok){
-        let data = await response.json()
+      if (response.ok) {
+        let data = await response.json();
         console.log(data);
 
         setTimeout(() => {
@@ -101,7 +102,7 @@ export const fetchTweets = (coin) => {
             type: "FETCH _TWEETS",
             payload: data,
           });
-  
+
           dispatch(
             {
               type: "FETCH_TWEETS_LOADING",
@@ -109,16 +110,51 @@ export const fetchTweets = (coin) => {
             },
             1000
           );
-  
+
           dispatch({
             type: "FETCH_TWEETS_ERROR",
             payload: false,
           });
         });
       }
-
-     
     };
     getTweets();
+  };
+};
+
+// youtube
+export const fetchVideos = (query) => {
+  return (dispatch) => {
+    const URL = "https://www.googleapis.com/youtube/v3/search";
+    const getYoutubeVideos = async () => {
+      let response = await fetch(
+        `${URL}?part=snippet&q=${query}&type=video&relevanceLanguage=en&key=${process.env.REACT_APP_YOUTUBE_API}`
+      );
+      if(response.ok){
+        let data = await response.json();
+        setTimeout(() => {
+          dispatch({
+            type: "FETCH _VIDEOS",
+            payload: data,
+          });
+
+          dispatch(
+            {
+              type: "FETCH_VIDEOS_LOADING",
+              payload: false,
+            },
+            1000
+          );
+
+          dispatch({
+            type: "FETCH_VIDEOS_ERROR",
+            payload: false,
+          });
+        });
+      }
+
+    };
+
+    getYoutubeVideos();
   };
 };

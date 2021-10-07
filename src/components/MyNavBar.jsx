@@ -1,5 +1,5 @@
 import { Navbar, Nav } from "react-bootstrap";
-import Whale from "../assets/SpoutingWhale.png";
+import Whale from "../assets/SpoutingWhale.PNG";
 import "../App.css";
 import { Link } from "react-router-dom";
 import { AiFillHeart } from "react-icons/ai";

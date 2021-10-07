@@ -7,6 +7,7 @@ import coinSearchReducer from "../reducers/coinSearch";
 import specificCoinReducer from "../reducers/speficCoin";
 import favoriteReducer from "../reducers/favorite";
 import tweetsReducer from "../reducers/twitter";
+import youtubeReducer from "../reducers/youtube";
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
 
@@ -32,6 +33,11 @@ export const initialState = {
     loading: true,
     error: false,
   },
+  youtube: {
+    videos: null,
+    loading: true,
+    error: false,
+  },
 };
 
 const persistConfig = {
@@ -49,6 +55,7 @@ const bigReducer = combineReducers({
   coinDetails: specificCoinReducer,
   favorite: favoriteReducer,
   tweets: tweetsReducer,
+  youtube: youtubeReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, bigReducer);

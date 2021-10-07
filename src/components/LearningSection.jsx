@@ -1,11 +1,12 @@
-import {useState, useEffect} from "react";
+import { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { Button } from "react-bootstrap";
 import Tweets from "./Tweets";
-import { fetchTweets } from "../actions";
+import { fetchTweets, fetchVideos } from "../actions";
 import Typewriter from "typewriter-effect";
+
 import "../App.css";
-import Youtube from "./Youtube";
+// import Youtube from "./Youtube";
 
 const mapStateToProps = (state) => ({
   favorite: state.favorite.collection,
@@ -13,17 +14,20 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   loadTweets: (coin) => dispatch(fetchTweets(coin)),
+  loadVideos: (query) => dispatch(fetchVideos(query)),
 });
 
-const LearningSection = ({ favorite, loadTweets }) => {
+const LearningSection = ({ favorite, loadTweets, loadVideos }) => {
+  const loadTweetsAndVideos = (query) => {
+    loadTweets(query)
+    loadVideos(query) 
+  }
 
-  const [coinNames, setCoinNames] = useState([])
+  const [coinNames, setCoinNames] = useState([]);
   useEffect(() => {
-    let coinNames = favorite.map(f => f.data.name)
-    setCoinNames(coinNames)
-  }, [favorite])
-
-
+    let coinNames = favorite.map((f) => f.data.name);
+    setCoinNames(coinNames);
+  }, [favorite]);
 
   return (
     <section className="ml-5">
@@ -45,11 +49,12 @@ const LearningSection = ({ favorite, loadTweets }) => {
           favorite.map((coin) => {
             return (
               <>
-              {/* implement windows onload click on first button */}
+                {/* implement windows onload click on first button */}
                 <Button
                   key={coin.data.id}
                   className="mr-2 mb-2 coinButton"
-                  onClick={() => loadTweets(coin.data.id)}
+                  onClick={() => loadTweetsAndVideos(coin.data.id)}
+                  // onClick={() => loadVideos(coin.data.id)}
                 >
                   {coin.data.name}
                 </Button>
@@ -59,7 +64,7 @@ const LearningSection = ({ favorite, loadTweets }) => {
       </div>
       <div className="mt-5">
         <Tweets />
-        <Youtube/>
+        {/* <Youtube/> */}
       </div>
     </section>
   );

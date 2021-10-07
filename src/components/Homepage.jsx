@@ -5,6 +5,8 @@ import { Container, Table, Button } from "react-bootstrap";
 import "../App.css";
 import { Link } from "react-router-dom";
 import MyLoader from "./Loader";
+import NumberFormat from "react-number-format";
+import MyJumbotron from "./MyJumbotron";
 
 const mapStateToProps = (state) => ({
   coins: state.coins.results.data,
@@ -30,8 +32,11 @@ const Homepage = ({ fetchCoins, coins, loading, error, fetchTweets }) => {
     fetchTweets();
   }, []);
 
+  const CoinPrice = require("react-number-format");
+
   return (
     <>
+      <MyJumbotron />
       {loading && <MyLoader />}
       {!coins.length > 0 && <MyLoader />}
       {coins.length > 0 && (
@@ -49,18 +54,23 @@ const Homepage = ({ fetchCoins, coins, loading, error, fetchTweets }) => {
                 <th>Market Cap(USD)</th>
               </tr>
             </thead>
-            <tbody className="text-white tableBody">
+            <tbody className="text-white tableBody ">
               {coins.slice(0, 30).map((coin, index) => {
                 return (
                   <tr key={coin.id} className="text-center tableCell">
                     <td>{index + 1}</td>
                     <td>
-                      <Link to={`/coin/${coin.id}`} className="text-decoration-none">
+                      <Link
+                        to={`/coin/${coin.id}`}
+                        className="text-decoration-none"
+                      >
                         <div className="d-flex flex-column align-items-center p-0 m-0">
                           <span>
                             {<img src={coin.image.small} alt={coin.id} />}
                           </span>
-                          <a className="text-decoration-none coinName">{coin.name}</a>
+                          <a className="text-decoration-none coinName">
+                            {coin.name}
+                          </a>
                         </div>
                       </Link>
                     </td>

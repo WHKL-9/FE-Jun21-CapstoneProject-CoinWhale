@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import { Card, Button, Container, Row, Col } from "react-bootstrap";
 import MyLoader from "./Loader";
 import "../App.css";
-import Whale from "../assets/SpoutingWhale.png";
+import Whale from "../assets/SpoutingWhale.PNG";
 import CoinsContainer from "./CoinsContainer";
 import CoinDescription from "./CoinDescription";
 

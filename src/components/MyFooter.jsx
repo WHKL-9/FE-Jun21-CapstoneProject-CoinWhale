@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import Whale from "../assets/SpoutingWhale.png";
+import Whale from "../assets/SpoutingWhale.PNG";
 import "../App.css";
 
 export default function MyFooter() {
