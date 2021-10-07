@@ -143,6 +143,7 @@ const CoinDetails = ({
                         <strong>Description:</strong>{" "}
                       </p>
                       <span className="text-justify">
+                        {/* some coins dont have description - fix this  */}
                         <CoinDescription />
                       </span>
                     </span>
