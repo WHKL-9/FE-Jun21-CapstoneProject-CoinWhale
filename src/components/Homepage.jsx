@@ -37,8 +37,16 @@ const Homepage = ({ fetchCoins, coins, loading, error, fetchTweets }) => {
   return (
     <>
       <MyJumbotron />
-      {loading && <MyLoader />}
-      {!coins.length > 0 && <MyLoader />}
+      {loading && (
+        <div className="text-center">
+          <MyLoader />
+        </div>
+      )}
+      {!coins.length > 0 && (
+        <div className="text-center">
+          <MyLoader />
+        </div>
+      )}
       {coins.length > 0 && (
         <Container className="my-4 HomepageContainer">
           <Table id="coinTable" hover size="sm">
@@ -75,9 +83,9 @@ const Homepage = ({ fetchCoins, coins, loading, error, fetchTweets }) => {
                       </Link>
                     </td>
                     <td>{coin.symbol}</td>
-                    <td>{coin.market_data.current_price.usd}</td>
-                    <td>{coin.market_data.low_24h.usd}</td>
-                    <td>{coin.market_data.high_24h.usd}</td>
+                    <td>{coin.market_data.current_price.usd.toLocaleString()}</td>
+                    <td>{coin.market_data.low_24h.usd.toLocaleString()}</td>
+                    <td>{coin.market_data.high_24h.usd.toLocaleString()}</td>
                     <td
                       style={{
                         color:
@@ -86,9 +94,9 @@ const Homepage = ({ fetchCoins, coins, loading, error, fetchTweets }) => {
                             : "#CF202F",
                       }}
                     >
-                      {coin.market_data.market_cap_change_24h}
+                      {coin.market_data.market_cap_change_24h.toLocaleString()}
                     </td>
-                    <td>{coin.market_data.market_cap.usd}</td>
+                    <td>{coin.market_data.market_cap.usd.toLocaleString()}</td>
                   </tr>
                 );
               })}

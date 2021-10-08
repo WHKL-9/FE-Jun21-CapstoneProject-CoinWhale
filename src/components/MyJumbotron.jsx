@@ -1,6 +1,7 @@
 import { Container, Jumbotron, Row, Col } from "react-bootstrap";
 import "../App.css";
 import Whale from "../assets/SpoutingWhale.PNG";
+import { AiFillYoutube, AiFillTwitterCircle } from "react-icons/ai";
 
 const MyJumbotron = () => {
   return (
@@ -12,6 +13,14 @@ const MyJumbotron = () => {
             Learn something new about new coins on the market via the hottest
             tweets and videos.
           </h6>
+          <span className="spanInJumbotron d-flex align-items-center">
+            <span className="ml-2 mr-4 iconsInJumbotron ">
+              <AiFillTwitterCircle />
+            </span>
+            <span className="mr-5 iconsInJumbotron">
+              <AiFillYoutube />
+            </span>
+          </span>
         </span>
 
         <span className="whaleDiv d-flex ml-auto ">

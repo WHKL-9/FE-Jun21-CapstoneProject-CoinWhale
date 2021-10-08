@@ -6,9 +6,9 @@ const MyLoader = (props) => (
  <Container className="text-center">
       <ContentLoader 
         speed={3}
-        width={853.333}
-        height={854.333}
-        viewBox="0 0 853.333 854.333"
+        width={600}
+        height={600}
+        viewBox="0 0 650 650"
         backgroundColor="#adadad"
         foregroundColor="#3e66f4"
         {...props}

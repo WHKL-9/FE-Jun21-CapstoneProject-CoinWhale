@@ -4,9 +4,8 @@ import { Button } from "react-bootstrap";
 import Tweets from "./Tweets";
 import { fetchTweets, fetchVideos } from "../actions";
 import Typewriter from "typewriter-effect";
-
 import "../App.css";
-// import Youtube from "./Youtube";
+import MyYoutube from "./MyYoutube";
 
 const mapStateToProps = (state) => ({
   favorite: state.favorite.collection,
@@ -54,7 +53,6 @@ const LearningSection = ({ favorite, loadTweets, loadVideos }) => {
                   key={coin.data.id}
                   className="mr-2 mb-2 coinButton"
                   onClick={() => loadTweetsAndVideos(coin.data.id)}
-                  // onClick={() => loadVideos(coin.data.id)}
                 >
                   {coin.data.name}
                 </Button>
@@ -64,7 +62,7 @@ const LearningSection = ({ favorite, loadTweets, loadVideos }) => {
       </div>
       <div className="mt-5">
         <Tweets />
-        {/* <Youtube/> */}
+        <MyYoutube/>
       </div>
     </section>
   );

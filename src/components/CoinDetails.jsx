@@ -8,6 +8,16 @@ import "../App.css";
 import Whale from "../assets/SpoutingWhale.PNG";
 import CoinsContainer from "./CoinsContainer";
 import CoinDescription from "./CoinDescription";
+import { GiCrownCoin, GiHighKick, GiRank1 } from "react-icons/gi";
+import { RiNumbersLine, RiFunctionFill } from "react-icons/ri";
+import {
+  AiFillHome,
+  AiFillGithub,
+  AiFillTwitterCircle,
+  AiFillRedditCircle,
+} from "react-icons/ai";
+import { CgGitFork } from "react-icons/cg";
+import { MdDescription } from "react-icons/md";
 
 const mapStateToProps = (state) => ({
   coinDetails: state.coinDetails.details,
@@ -44,11 +54,14 @@ const CoinDetails = ({
 
   return (
     <>
-      {loading && <MyLoader />}
+      {loading && (
+        <div className="d-flex align-items-center justify-content-center mx-auto">
+          <MyLoader />
+        </div>
+      )}
       {coinDetails ? (
         <Container className="my-5 text-white">
           <Card className="coinDetailsCard">
-            <div className="hexagon"></div>
             <Button
               variant="outline-primary"
               className="d-flex flex-row align-items-center mt-2 mr-2 ml-auto FavoriteButton"
@@ -58,24 +71,34 @@ const CoinDetails = ({
               <img src={Whale} alt="whale" className="FavoriteWhale" />
             </Button>
             <Row>
-              <Col xs={4}>
-                <Card.Img
-                  variant="top"
-                  src={coinDetails.data.image.large}
-                  className="coinImage mt-2 ml-4"
-                />
-              </Col>
               <Col xs={6}>
-                <div className="slidecontainer text-center">
+                <div className="text-center pr-5">
+                  <Card.Img
+                    variant="top"
+                    src={coinDetails.data.image.large}
+                    className="coinImage"
+                  />
+                </div>
+              </Col>
+              <Col xs={6} className="pr-5">
+                <div className="slideContainer text-center">
                   <div className="d-block text-left mb-1">
                     <strong>Time frame:</strong> 24h
                   </div>
                   <div className="d-flex flex-row mb-2 sliderDiv">
-                    <span> ${coinDetails.data.market_data.low_24h.usd}</span>
-                    <span className="currentPrice">
-                      Current: ${coinDetails.data.market_data.current_price.usd}
+                    <span>
+                      {" "}
+                      $
+                      {coinDetails.data.market_data.low_24h.usd.toLocaleString()}
                     </span>
-                    <span>${coinDetails.data.market_data.high_24h.usd}</span>
+                    <span className="currentPrice">
+                      Current: $
+                      {coinDetails.data.market_data.current_price.usd.toLocaleString()}
+                    </span>
+                    <span>
+                      $
+                      {coinDetails.data.market_data.high_24h.usd.toLocaleString()}
+                    </span>
                   </div>
                   <input
                     type="range"
@@ -91,55 +114,140 @@ const CoinDetails = ({
 
             <Card.Body>
               <Card.Text>
-                <Row className="mx-auto">
-                  <Col xs={4}>
-                    <p>
-                      <strong>Coin:</strong> {coinDetails.data.name} (
-                      {coinDetails.data.symbol})
-                    </p>
-
-                    <p>
-                      <strong>ATH:</strong> $
-                      {coinDetails.data.market_data.ath.usd}
-                    </p>
-                    <p>
-                      <strong>Market Cap Rank:</strong>{" "}
-                      {coinDetails.data.market_cap_rank}
-                    </p>
-                    <p>
-                      <strong>Market Cap:</strong> $
-                      {coinDetails.data.market_data.market_cap.usd}
-                    </p>
-                    <p>
-                      <strong>Homepage:</strong>{" "}
-                      {coinDetails.data.links.homepage[0]}
-                    </p>
-                    <p>
-                      <strong>Category:</strong>{" "}
-                      {coinDetails.data.categories[0]}
-                    </p>
-                    <p>
-                      <strong>Github:</strong>{" "}
-                      {coinDetails.data.links.repos_url.github[0]
-                        ? coinDetails.data.links.repos_url.github[0]
-                        : "N/A"}
-                    </p>
-                    <p>
-                      <strong>Twitter followers:</strong>{" "}
-                      {coinDetails.data.community_data.twitter_followers}
-                    </p>
-                    <p>
-                      <strong>Reddit Average Post/48h:</strong>{" "}
-                      {coinDetails.data.community_data.reddit_average_posts_48h}
-                    </p>
-                    <p>
-                      <strong>Developer's forks:</strong>{" "}
-                      {coinDetails.data.developer_data.forks}
-                    </p>
+                <Row>
+                  <Col xs={6} className="pr-0 mr-0">
+                    <Row className="mb-2">
+                      <Col xs={5} className="d-flex justify-content-end">
+                        <span className="mr-1 d-flex align-items-center">
+                          <GiCrownCoin />
+                        </span>{" "}
+                        <strong> Coin:</strong>
+                      </Col>
+                      <Col xs={7} className="pl-0">
+                        {coinDetails.data.name} ({coinDetails.data.symbol})
+                      </Col>
+                    </Row>
+                    <Row className="mb-2">
+                      <Col xs={5} className="d-flex justify-content-end">
+                        <span className="mr-1 d-flex align-items-center">
+                          <GiHighKick />
+                        </span>{" "}
+                        <strong> ATH:</strong>
+                      </Col>
+                      <Col xs={7} className="pl-0">
+                        {coinDetails.data.market_data.ath.usd.toLocaleString()}{" "}
+                      </Col>
+                    </Row>
+                    <Row className="mb-2">
+                      <Col xs={5} className="d-flex justify-content-end">
+                        <span className="mr-1 d-flex align-items-center">
+                          <GiRank1 />
+                        </span>{" "}
+                        <strong> Market Cap Rank:</strong>
+                      </Col>
+                      <Col xs={7} className="pl-0">
+                        {coinDetails.data.market_cap_rank}{" "}
+                      </Col>
+                    </Row>
+                    <Row className="mb-2">
+                      <Col xs={5} className="d-flex justify-content-end">
+                        <span className="mr-1 d-flex align-items-center">
+                          <RiNumbersLine />
+                        </span>
+                        <strong> Market Cap:</strong>
+                      </Col>
+                      <Col xs={7} className="pl-0">
+                        $
+                        {coinDetails.data.market_data.market_cap.usd.toLocaleString()}{" "}
+                      </Col>
+                    </Row>
+                    <Row className="mb-2">
+                      <Col xs={5} className="d-flex justify-content-end">
+                        <span className="mr-1 d-flex align-items-center">
+                          <AiFillHome />
+                        </span>
+                        <strong> Homepage:</strong>
+                      </Col>
+                      <Col xs={7} className="pl-0">
+                        <a
+                          href={coinDetails.data.links.homepage[0]}
+                          target="_blank"
+                        >
+                          {coinDetails.data.links.homepage[0].slice(8)}
+                        </a>
+                      </Col>
+                    </Row>
+                    <Row className="mb-2">
+                      <Col xs={5} className="d-flex justify-content-end">
+                        <span className="mr-1 d-flex align-items-center">
+                          <RiFunctionFill />
+                        </span>
+                        <strong> Category:</strong>
+                      </Col>
+                      <Col xs={7} className="pl-0">
+                        {coinDetails.data.categories[0]}
+                      </Col>
+                    </Row>
+                    <Row className="mb-2">
+                      <Col xs={5} className="d-flex justify-content-end">
+                        <span className="mr-1 d-flex align-items-center">
+                          <AiFillGithub />
+                        </span>
+                        <strong> Github:</strong>
+                      </Col>
+                      <Col xs={7} className="pl-0">
+                        {coinDetails.data.links.repos_url.github[0] ? (
+                          <a
+                            href={coinDetails.data.links.repos_url.github[0]}
+                            target="_blank"
+                          >
+                            {coinDetails.data.links.repos_url.github[0].slice(8)}
+                          </a>
+                        ) : (
+                          "N/A"
+                        )}
+                      </Col>
+                    </Row>
+                    <Row className="mb-2">
+                      <Col xs={5} className="d-flex justify-content-end">
+                        <span className="mr-1 d-flex align-items-center">
+                          <AiFillTwitterCircle />
+                        </span>
+                        <strong> Twitter followers:</strong>
+                      </Col>
+                      <Col xs={7} className="pl-0">
+                        {coinDetails.data.community_data.twitter_followers.toLocaleString()}
+                      </Col>
+                    </Row>
+                    <Row className="mb-2">
+                      <Col xs={5} className="d-flex justify-content-end">
+                        <span className="mr-1 d-flex align-items-center">
+                          <AiFillRedditCircle />
+                        </span>
+                        <strong> Reddit Post/48h:</strong>
+                      </Col>
+                      <Col xs={7} className="pl-0">
+                        {coinDetails.data.community_data.reddit_average_posts_48h.toLocaleString()}
+                      </Col>
+                    </Row>
+                    <Row className="mb-2">
+                      <Col xs={5} className="d-flex justify-content-end">
+                        <span className="mr-1 d-flex align-items-center">
+                          <CgGitFork />
+                        </span>
+                        <strong> Developer's forks:</strong>
+                      </Col>
+                      <Col xs={7} className="pl-0">
+                        {coinDetails.data.developer_data.forks.toLocaleString()}
+                      </Col>
+                    </Row>
                   </Col>
-                  <Col xs={8} className="pr-3">
+                  <Col xs={6} className="pr-5">
                     <span>
-                      <p className="mb-0">
+                      <p className="d-flex flex-row align-items-center mb-0">
+                        <span className="mr-1 d-flex align-items-center">
+                          <MdDescription />
+                        </span>
                         <strong>Description:</strong>{" "}
                       </p>
                       <span className="text-justify">

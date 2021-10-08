@@ -13,7 +13,7 @@ const mapStateToProps = (state) => ({
 
 const Tweets = ({ tweets }) => {
   return (
-    <section>
+    <section className="mb-5">
       <span className="d-flex flex-row align-items-center mb-2">
         <FaTwitter className="TwitterLogo" />
         <h5 className=" ml-2 my-0 py-0 text-white">It's what's happening</h5>
