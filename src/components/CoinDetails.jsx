@@ -102,9 +102,9 @@ const CoinDetails = ({
                   </div>
                   <input
                     type="range"
-                    min={coinDetails.data.market_data.low_24h.usd}
-                    max={coinDetails.data.market_data.high_24h.usd}
-                    value={coinDetails.data.market_data.current_price.usd}
+                    min={coinDetails.data.market_data.low_24h.usd * 1000 }
+                    max={coinDetails.data.market_data.high_24h.usd * 1000 }
+                    value={coinDetails.data.market_data.current_price.usd * 1000 }
                     className="slider priceSlider"
                     id="myRange"
                   />
@@ -172,6 +172,7 @@ const CoinDetails = ({
                         <a
                           href={coinDetails.data.links.homepage[0]}
                           target="_blank"
+                          className="text-decoration-none"
                         >
                           {coinDetails.data.links.homepage[0].slice(8)}
                         </a>
@@ -190,7 +191,7 @@ const CoinDetails = ({
                     </Row>
                     <Row className="mb-2">
                       <Col xs={5} className="d-flex justify-content-end">
-                        <span className="mr-1 d-flex align-items-center">
+                        <span className="mr-1 mt-1 d-flex">
                           <AiFillGithub />
                         </span>
                         <strong> Github:</strong>
@@ -199,7 +200,7 @@ const CoinDetails = ({
                         {coinDetails.data.links.repos_url.github[0] ? (
                           <a
                             href={coinDetails.data.links.repos_url.github[0]}
-                            target="_blank"
+                            target="_blank" className="text-decoration-none"
                           >
                             {coinDetails.data.links.repos_url.github[0].slice(8)}
                           </a>
