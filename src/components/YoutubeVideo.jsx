@@ -1,11 +1,12 @@
 import React from "react";
 import YouTube from "react-youtube";
-import {connect} from "react-redux"
+import { connect } from "react-redux";
+import { Carousel } from "react-bootstrap";
+import "../App.css"
 
-
-const mapStateToProps = (state)=>({
-    videos: state.youtube.videos
-})
+const mapStateToProps = (state) => ({
+  videos: state.youtube.videos.items,
+});
 
 class YoutubeVideo extends React.Component {
   render() {
@@ -14,14 +15,28 @@ class YoutubeVideo extends React.Component {
       width: "640",
       playerVars: {
         // https://developers.google.com/youtube/player_parameters
-        autoplay: 1,
+        autoplay: 0,
       },
     };
 
     return (
       <>
-        <YouTube videoId="dYEyo7JahI0" opts={opts} onReady={this._onReady} />
-        <YouTube videoId="dYEyo7JahI0" opts={opts} onReady={this._onReady} />
+        <Carousel id="carouselExampleControls">
+          {this.props.videos &&
+            this.props.videos.map((video) => (
+              <Carousel.Item className="carouselItem">
+                <YouTube
+                  videoId={video.id.videoId}
+                  opts={opts}
+                  onReady={this._onReady}
+                  className="youtubeVideo"
+                />
+                <Carousel.Caption>
+                  <h6 className="text-white videoText">{video.snippet.title}</h6>
+                </Carousel.Caption>
+              </Carousel.Item>
+            ))}
+        </Carousel>
       </>
     );
   }
@@ -33,7 +48,3 @@ class YoutubeVideo extends React.Component {
 }
 
 export default connect(mapStateToProps)(YoutubeVideo);
-
-
-
-

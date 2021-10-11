@@ -78,10 +78,9 @@ body {
   background-color: #0052ff !important;
 }
 
-
-.iconsInJumbotron{
+.iconsInJumbotron {
   color: white;
-  transform: scale(2)
+  transform: scale(2);
 }
 
 .whaleDiv {
@@ -93,17 +92,16 @@ body {
   justify-content: center;
   box-shadow: 0px 5px 5px black;
   animation: MoveUpDown 2.5s linear infinite;
-
 }
 
 .whaleInJumbotron {
   width: 5rem !important;
   height: 5rem !important;
-
 }
 
 @keyframes MoveUpDown {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(1rem);
   }
   50% {
@@ -323,8 +321,11 @@ th {
   color: black !important;
 }
 
-.coinButton:focus {
-  background-color: black;
+.coinButton:focus, .coinButton:active{
+  background-color: white !important;
+  border: 1px solid white !important;
+  box-shadow: 4px 4px 3px black;
+  color: black !important;
 }
 
 /* Tweets */
@@ -361,4 +362,33 @@ th {
 /* Typewriter */
 .TypewriterCoin {
   color: #0052ff;
+}
+
+/* youtube */
+#carouselExampleControls {
+  position: relative;
+}
+
+#carouselExampleControls .carousel-control-prev {
+  position: absolute;
+  left: -4rem;
+}
+
+#carouselExampleControls .carousel-control-next {
+  position: absolute;
+  right: -4rem;
+}
+
+.videoText {
+  background-color: black !important;
+}
+
+#carouselExampleControls ol{
+  position: absolute;
+  bottom: -2rem;
+  margin: auto;
+}
+
+.carouselItem iframe{
+width: 100%
 }

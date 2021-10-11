@@ -6,6 +6,8 @@ import { FiShare } from "react-icons/fi";
 import "../App.css";
 import { connect } from "react-redux";
 import MyLoader from "./Loader";
+import { format } from 'date-fns'
+
 
 const mapStateToProps = (state) => ({
   tweets: state.tweets.data.statuses,
