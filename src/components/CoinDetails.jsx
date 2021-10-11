@@ -18,6 +18,7 @@ import {
 } from "react-icons/ai";
 import { CgGitFork } from "react-icons/cg";
 import { MdDescription } from "react-icons/md";
+import { MyAlert } from "./MyAlert";
 
 const mapStateToProps = (state) => ({
   coinDetails: state.coinDetails.details,
@@ -52,6 +53,7 @@ const CoinDetails = ({
     window.scrollTo(0, 0);
   }, [coinQuery]);
 
+
   return (
     <>
       {loading && (
@@ -70,6 +72,8 @@ const CoinDetails = ({
             >
               <img src={Whale} alt="whale" className="FavoriteWhale" />
             </Button>
+            <MyAlert/>
+
             <Row>
               <Col xs={6}>
                 <div className="text-center pr-5">

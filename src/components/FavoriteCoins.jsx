@@ -8,6 +8,7 @@ import "../App.css";
 import LearningSection from "./LearningSection";
 import { useEffect } from "react";
 
+
 const mapStateToProps = (state) => ({
   favorite: state.favorite.collection,
 });
