@@ -296,7 +296,8 @@ th {
 /* CoinRows */
 
 .CoinCards {
-  width: 10rem;
+  width: 10.5rem;
+  height: 12rem;
   background-color: transparent !important;
   border: none !important;
   box-shadow: 4px 4px 3px black;

@@ -62,7 +62,7 @@ const Homepage = ({ fetchCoins, coins, loading, error, fetchTweets }) => {
               </tr>
             </thead>
             <tbody className="text-white tableBody ">
-              {coins.slice(0, 30).map((coin, index) => {
+              {coins.map((coin, index) => {
                 return (
                   <tr key={coin.id} className="text-center tableCell">
                     <td>{index + 1}</td>
