@@ -321,7 +321,8 @@ th {
   color: black !important;
 }
 
-.coinButton:focus, .coinButton:active{
+.coinButton:focus,
+.coinButton:active {
   background-color: white !important;
   border: 1px solid white !important;
   box-shadow: 4px 4px 3px black;
@@ -379,16 +380,12 @@ th {
   right: -4rem;
 }
 
-.videoText {
-  background-color: black !important;
-}
-
-#carouselExampleControls ol{
+#carouselExampleControls ol {
   position: absolute;
   bottom: -2rem;
   margin: auto;
 }
 
-.carouselItem iframe{
-width: 100%
+.carouselItem iframe {
+  width: 100%;
 }

@@ -7,7 +7,7 @@ import { AiFillHeart } from "react-icons/ai";
 import "../App.css";
 import LearningSection from "./LearningSection";
 import { useEffect } from "react";
-
+import { Link } from "react-router-dom";
 
 const mapStateToProps = (state) => ({
   favorite: state.favorite.collection,
@@ -30,7 +30,7 @@ const FavoriteCoins = ({ favorite, deleteCoin }) => {
               <span className="mr-2 d-flex align-items-center heartCoin">
                 <AiFillHeart />
               </span>
-              <span >Collection</span>
+              <span>Collection</span>
             </h4>
             {favorite.length > 0 &&
               favorite.map((favoriteCoin, index) => {
@@ -48,16 +48,22 @@ const FavoriteCoins = ({ favorite, deleteCoin }) => {
                           <IoRemoveCircle />
                         </span>
                       </Button>
-                      <Card.Img
-                        variant="top"
-                        src={favoriteCoin.data.image.large}
-                        className="favoriteCoinImage mx-auto"
-                      />
-                      <Card.Body>
-                        <Card.Title className="text-white">
-                          {favoriteCoin.data.name} ({favoriteCoin.data.symbol})
-                        </Card.Title>
-                      </Card.Body>
+                      <Link
+                        to={`/coin/${favoriteCoin.data.id}`}
+                        className="text-decoration-none"
+                      >
+                        <Card.Img
+                          variant="top"
+                          src={favoriteCoin.data.image.large}
+                          className="favoriteCoinImage mx-auto"
+                        />
+                        <Card.Body>
+                          <Card.Title className="text-white">
+                            {favoriteCoin.data.name} ({favoriteCoin.data.symbol}
+                            )
+                          </Card.Title>
+                        </Card.Body>
+                      </Link>
                     </Card>
                   </Container>
                 );

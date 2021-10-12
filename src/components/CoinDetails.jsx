@@ -5,7 +5,6 @@ import { connect } from "react-redux";
 import { Card, Button, Container, Row, Col } from "react-bootstrap";
 import MyLoader from "./Loader";
 import "../App.css";
-import Whale from "../assets/SpoutingWhale.PNG";
 import CoinsContainer from "./CoinsContainer";
 import CoinDescription from "./CoinDescription";
 import { GiCrownCoin, GiHighKick, GiRank1 } from "react-icons/gi";
@@ -18,7 +17,7 @@ import {
 } from "react-icons/ai";
 import { CgGitFork } from "react-icons/cg";
 import { MdDescription } from "react-icons/md";
-import { MyAlert } from "./MyAlert";
+import MyAlert from "./MyAlert";
 
 const mapStateToProps = (state) => ({
   coinDetails: state.coinDetails.details,
@@ -64,14 +63,6 @@ const CoinDetails = ({
       {coinDetails ? (
         <Container className="my-5 text-white">
           <Card className="coinDetailsCard">
-            <Button
-              variant="outline-primary"
-              className="d-flex flex-row align-items-center mt-2 mr-2 ml-auto FavoriteButton"
-              type="button"
-              onClick={() => addToFavorite(coinDetails)}
-            >
-              <img src={Whale} alt="whale" className="FavoriteWhale" />
-            </Button>
             <MyAlert/>
 
             <Row>

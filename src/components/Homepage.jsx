@@ -5,7 +5,6 @@ import { Container, Table, Button } from "react-bootstrap";
 import "../App.css";
 import { Link } from "react-router-dom";
 import MyLoader from "./Loader";
-import NumberFormat from "react-number-format";
 import MyJumbotron from "./MyJumbotron";
 
 const mapStateToProps = (state) => ({

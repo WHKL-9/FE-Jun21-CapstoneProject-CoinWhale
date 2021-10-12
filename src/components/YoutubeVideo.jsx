@@ -31,9 +31,7 @@ class YoutubeVideo extends React.Component {
                   onReady={this._onReady}
                   className="youtubeVideo"
                 />
-                <Carousel.Caption>
-                  <h6 className="text-white videoText">{video.snippet.title}</h6>
-                </Carousel.Caption>
+                
               </Carousel.Item>
             ))}
         </Carousel>
