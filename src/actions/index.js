@@ -88,7 +88,7 @@ export const fetchTweets = (coin) => {
   return (dispatch) => {
     const getTweets = async () => {
       let response = await fetch(
-        `http://localhost:5000/tweets?q=${coin}&count=10`,
+        `https://capstone-twitter.herokuapp.com/tweets?q=${coin}&count=10`,
         {
           method: "GET",
         }
