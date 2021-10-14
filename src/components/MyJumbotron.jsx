@@ -1,6 +1,5 @@
 import { Container, Jumbotron, Row, Col } from "react-bootstrap";
 import "../App.css";
-import Whale from "../assets/SpoutingWhale.PNG";
 import { AiFillYoutube, AiFillTwitterCircle } from "react-icons/ai";
 
 const MyJumbotron = () => {
@@ -24,7 +23,7 @@ const MyJumbotron = () => {
         </span>
 
         <span className="whaleDiv d-flex ml-auto ">
-          <img src={Whale} alt="whale" className="whaleInJumbotron" />
+          <img src="https://res.cloudinary.com/demwthyen/image/upload/v1634156343/Coinwhale/SpoutingWhale_vxswmy.png" alt="whale" className="whaleInJumbotron" />
         </span>
       </Container>
     </Jumbotron>
