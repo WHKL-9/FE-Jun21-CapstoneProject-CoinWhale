@@ -1,6 +1,5 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import Whale from "../assets/SpoutingWhale.PNG";
 import "../App.css";
 
 export default function MyFooter() {
@@ -9,7 +8,7 @@ export default function MyFooter() {
       <Row className="mb-0">
           <Col xs={4} className="footerCol">
               <div className="logoDiv d-flex mt-2">
-                <img src={Whale} alt="Whale" className="logo" />
+                <img src="https://res.cloudinary.com/demwthyen/image/upload/v1634156343/Coinwhale/SpoutingWhale_vxswmy.png" alt="Whale" className="logo" />
               </div>
               <p className="copyrightText">Copyright 2021 CoinWhale</p>
           </Col>

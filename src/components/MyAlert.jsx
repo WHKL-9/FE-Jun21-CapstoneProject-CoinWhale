@@ -1,6 +1,5 @@
 import { Alert, Button } from "react-bootstrap";
 import { useState, useEffect } from "react";
-import Whale from "../assets/SpoutingWhale.PNG";
 import "../App.css";
 import { connect } from "react-redux";
 import { addCoinToFavorite } from "../actions";
@@ -67,7 +66,7 @@ const MyAlert = ({ addToFavorite, coinDetails, favorite }) => {
           className="d-flex flex-row align-items-center mt-2 mr-2 ml-auto FavoriteButton"
           onClick={() => favoriteAndAlert(coinDetails)}
         >
-          <img src={Whale} alt="whale" className="FavoriteWhale" />
+          <img src="https://res.cloudinary.com/demwthyen/image/upload/v1634156343/Coinwhale/SpoutingWhale_vxswmy.png" alt="whale" className="FavoriteWhale" />
         </Button>
       )}
     </>

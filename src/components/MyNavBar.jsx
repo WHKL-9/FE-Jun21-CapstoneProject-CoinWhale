@@ -1,5 +1,4 @@
 import { Navbar, Nav } from "react-bootstrap";
-import Whale from "../assets/SpoutingWhale.PNG";
 import "../App.css";
 import { Link } from "react-router-dom";
 import { AiFillHeart } from "react-icons/ai";
@@ -10,7 +9,7 @@ const MyNavBar = () => (
       <Link to="/" style={{ textDecoration: "none" }}>
         <span className="d-flex flex-row align-items-center logoSpan">
           <span className="logoDiv mr-2 d-flex">
-            <img src={Whale} alt="whale" className="logo" />
+            <img src="https://res.cloudinary.com/demwthyen/image/upload/v1634156343/Coinwhale/SpoutingWhale_vxswmy.png" alt="whale" className="logo" />
           </span>
           <h4 className="text-white m-0">CoinWhale</h4>
         </span>

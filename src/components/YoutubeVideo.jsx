@@ -22,7 +22,7 @@ class YoutubeVideo extends React.Component {
     return (
       <>
         <Carousel id="carouselExampleControls">
-          {this.props.videos &&
+          {this.props.videos.length>1 &&
             this.props.videos.map((video) => (
               <Carousel.Item className="carouselItem">
                 <YouTube
