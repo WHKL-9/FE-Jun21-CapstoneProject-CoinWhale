@@ -5,7 +5,7 @@ import { Carousel } from "react-bootstrap";
 import "../App.css"
 
 const mapStateToProps = (state) => ({
-  videos: state.youtube.videos.items,
+  videos: state.youtube.videos,
 });
 
 class YoutubeVideo extends React.Component {
@@ -23,7 +23,7 @@ class YoutubeVideo extends React.Component {
       <>
         <Carousel id="carouselExampleControls">
           {this.props.videos &&
-            this.props.videos.map((video) => (
+            this.props.videos.items.map((video) => (
               <Carousel.Item className="carouselItem">
                 <YouTube
                   videoId={video.id.videoId}
