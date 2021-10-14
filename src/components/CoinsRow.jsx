@@ -18,8 +18,8 @@ const CoinsRow = ({ coins }) => {
   const coinQuery = params.id.toLowerCase();
 
   const _  = require("lodash"); 
-  let array = coins.filter(coin => coin.id !== coinQuery )
-  let shuffled_array = _.shuffle(array)
+  let array_1 = coins.filter(coin => coin.id !== coinQuery )
+  let shuffled_array = _.shuffle(array_1)
 
   return (
     <Row>
