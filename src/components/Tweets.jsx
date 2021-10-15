@@ -5,15 +5,14 @@ import { MdFavorite } from "react-icons/md";
 import { FiShare } from "react-icons/fi";
 import "../App.css";
 import { connect } from "react-redux";
-import MyLoader from "./Loader";
-import { format } from 'date-fns'
 
 
 const mapStateToProps = (state) => ({
   tweets: state.tweets.data.statuses,
+  favorite: state.favorite.collection,
 });
 
-const Tweets = ({ tweets }) => {
+const Tweets = ({ tweets,favorite  }) => {
   return (
     <section className="mb-5">
       <span className="d-flex flex-row align-items-center mb-2">
@@ -21,7 +20,7 @@ const Tweets = ({ tweets }) => {
         <h5 className=" ml-2 my-0 py-0 text-white">It's what's happening</h5>
       </span>
       <section className="TweetSection">
-        {tweets.length > 0 &&
+        {(favorite.length>0 && tweets) &&
           tweets.slice(0, 5).map((tweet) => (
             <Card key={tweet.id} className="TweetCard">
               <Row className="no-gutters TweetCard text-white">

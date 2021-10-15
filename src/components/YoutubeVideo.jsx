@@ -6,7 +6,10 @@ import "../App.css"
 
 const mapStateToProps = (state) => ({
   videos: state.youtube.videos,
+  favorite: state.favorite.collection,
 });
+
+
 
 class YoutubeVideo extends React.Component {
   render() {
@@ -22,7 +25,7 @@ class YoutubeVideo extends React.Component {
     return (
       <>
         <Carousel id="carouselExampleControls">
-          {this.props.videos &&
+          {(this.props.favorite.length>0 &&this.props.videos) &&
             this.props.videos.items.map((video) => (
               <Carousel.Item className="carouselItem">
                 <YouTube

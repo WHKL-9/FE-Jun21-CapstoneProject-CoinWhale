@@ -60,7 +60,7 @@ const CoinDetails = ({
           <MyLoader />
         </div>
       )}
-      {coinDetails ? (
+      {!loading && (
         <Container className="my-5 text-white">
           <Card className="coinDetailsCard">
             <MyAlert/>
@@ -259,8 +259,6 @@ const CoinDetails = ({
 
           <CoinsContainer />
         </Container>
-      ) : (
-        <MyLoader />
       )}
     </>
   );

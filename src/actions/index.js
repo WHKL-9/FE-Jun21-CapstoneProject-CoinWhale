@@ -1,6 +1,10 @@
 // fetch all coins
 export const fetchCoinData = () => {
   return (dispatch) => {
+    dispatch({
+      type: "FETCH_COIN_LOADING",
+      payload: true,
+    });
     //1. Import coingecko-api
     const CoinGecko = require("coingecko-api");
 
@@ -39,6 +43,10 @@ export const fetchCoinData = () => {
 // fetch specific coin
 export const fetchCoinDetails = (coin) => {
   return (dispatch) => {
+    dispatch({
+      type: "FETCH_COIN_LOADING",
+      payload: true,
+    });
     //1. Import coingecko-api
     const CoinGecko = require("coingecko-api");
 
@@ -86,6 +94,10 @@ export const deleteCoinFromFavorite = (index) => ({
 // twitter
 export const fetchTweets = (coin) => {
   return (dispatch) => {
+    dispatch({
+      type: "FETCH_TWEETS_LOADING",
+      payload: true,
+    });
     const getTweets = async () => {
       let response = await fetch(
         `https://capstone-twitter.herokuapp.com/tweets?q=${coin}&count=10`,
@@ -98,6 +110,10 @@ export const fetchTweets = (coin) => {
         console.log(data);
 
         setTimeout(() => {
+          dispatch({
+            type: "FETCH_TWEETS_LOADING",
+            payload: true,
+          });
           dispatch({
             type: "FETCH _TWEETS",
             payload: data,
@@ -125,14 +141,22 @@ export const fetchTweets = (coin) => {
 // youtube
 export const fetchVideos = (query) => {
   return (dispatch) => {
+    dispatch({
+      type: "FETCH_VIDEOS_LOADING",
+      payload: true,
+    });
     const URL = "https://www.googleapis.com/youtube/v3/search";
     const getYoutubeVideos = async () => {
       let response = await fetch(
         `${URL}?part=snippet&q=${query}&type=video&relevanceLanguage=en&key=${process.env.REACT_APP_YOUTUBE_API}`
       );
-      if(response.ok){
+      if (response.ok) {
         let data = await response.json();
         setTimeout(() => {
+          dispatch({
+            type: "FETCH_VIDEOS_LOADING",
+            payload: true,
+          });
           dispatch({
             type: "FETCH _VIDEOS",
             payload: data,
@@ -152,7 +176,6 @@ export const fetchVideos = (query) => {
           });
         });
       }
-
     };
 
     getYoutubeVideos();

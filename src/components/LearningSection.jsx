@@ -9,6 +9,7 @@ import MyYoutube from "./MyYoutube";
 
 const mapStateToProps = (state) => ({
   favorite: state.favorite.collection,
+  tweets: state.tweets.data.statuses,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -16,11 +17,21 @@ const mapDispatchToProps = (dispatch) => ({
   loadVideos: (query) => dispatch(fetchVideos(query)),
 });
 
-const LearningSection = ({ favorite, loadTweets, loadVideos }) => {
+const LearningSection = ({ favorite, loadTweets, loadVideos, tweets }) => {
   const loadTweetsAndVideos = (query) => {
     loadTweets(query)
     loadVideos(query) 
   }
+
+  const oneFavoriteCoin = () => {
+    if (favorite.length == 1){
+      loadTweetsAndVideos(favorite[0].data.id)
+    }
+  }
+
+  useEffect(()=>{
+    oneFavoriteCoin()
+  }, [favorite.length])
 
   const [coinNames, setCoinNames] = useState([]);
   useEffect(() => {

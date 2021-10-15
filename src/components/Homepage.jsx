@@ -31,8 +31,6 @@ const Homepage = ({ fetchCoins, coins, loading, error, fetchTweets }) => {
     fetchTweets();
   }, []);
 
-  const CoinPrice = require("react-number-format");
-
   return (
     <>
       <MyJumbotron />
@@ -41,12 +39,8 @@ const Homepage = ({ fetchCoins, coins, loading, error, fetchTweets }) => {
           <MyLoader />
         </div>
       )}
-      {!coins.length > 0 && (
-        <div className="text-center">
-          <MyLoader />
-        </div>
-      )}
-      {coins.length > 0 && (
+
+      {!loading && (
         <Container className="my-4 HomepageContainer">
           <Table id="coinTable" hover size="sm">
             <thead>
@@ -82,7 +76,9 @@ const Homepage = ({ fetchCoins, coins, loading, error, fetchTweets }) => {
                       </Link>
                     </td>
                     <td>{coin.symbol}</td>
-                    <td>{coin.market_data.current_price.usd.toLocaleString()}</td>
+                    <td>
+                      {coin.market_data.current_price.usd.toLocaleString()}
+                    </td>
                     <td>{coin.market_data.low_24h.usd.toLocaleString()}</td>
                     <td>{coin.market_data.high_24h.usd.toLocaleString()}</td>
                     <td

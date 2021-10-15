@@ -160,13 +160,11 @@ body {
 table,
 tr,
 td,
-th
- {
+th {
   border: none !important;
 }
 
-
-th{
+th {
   background-color: #0052ff;
   color: white;
   border-bottom: 1px solid black;
@@ -294,7 +292,7 @@ th{
   background-color: transparent !important;
 }
 
-.removeButton:hover{
+.removeButton:hover {
   width: 2rem !important;
   height: 2rem !important;
   border: none !important;
@@ -407,4 +405,9 @@ th{
 
 .carouselItem iframe {
   width: 100%;
+}
+
+/* Loader */
+.ContentLoader {
+  height: 90vh;
 }
