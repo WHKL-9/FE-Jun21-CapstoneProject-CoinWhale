@@ -35,7 +35,6 @@ const CoinDetails = ({
   coinDetails,
   loading,
   error,
-  addToFavorite,
 }) => {
   const params = useParams();
   const coinQuery = params.id.toLowerCase();

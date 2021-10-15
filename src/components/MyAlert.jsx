@@ -32,7 +32,7 @@ const MyAlert = ({ addToFavorite, coinDetails, favorite }) => {
     let favoriteCoins = favorite.map((f) => f.data.id);
     let uniqueFavoriteCoins = [...new Set(favoriteCoins)];
     setFavoriteCoin(uniqueFavoriteCoins);
-  });
+  }, []);
 
   if (show) {
     setTimeout(() => setShow(false), 1500);
