@@ -63,9 +63,10 @@ const persistedReducer = persistReducer(persistConfig, bigReducer);
 export const configureStore = createStore(
   persistedReducer,
   initialState,
-  process.env.REACT_APP_DEVELOPMENT
-    ? composeEnhancers(applyMiddleware(thunk))
-    : compose(applyMiddleware(thunk))
+  // process.env.REACT_APP_DEVELOPMENT
+  //   ? composeEnhancers(applyMiddleware(thunk))
+  //   : 
+    compose(applyMiddleware(thunk))
 );
 
 // ! dont forget
