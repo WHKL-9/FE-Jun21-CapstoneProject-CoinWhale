@@ -20,7 +20,7 @@ import { MdDescription } from "react-icons/md";
 import MyAlert from "./MyAlert";
 
 const mapStateToProps = (state) => ({
-  coinDetails: state.coinDetails.details,
+  coinDetails: state.coinDetails,
   loading: state.coinDetails.loading,
   error: state.coinDetails.error,
 });
@@ -70,7 +70,7 @@ const CoinDetails = ({
                 <div className="text-center pr-5">
                   <Card.Img
                     variant="top"
-                    src={coinDetails.data.image.large}
+                    src={coinDetails.details.data.image.large}
                     className="coinImage"
                   />
                 </div>
@@ -84,22 +84,22 @@ const CoinDetails = ({
                     <span>
                       {" "}
                       $
-                      {coinDetails.data.market_data.low_24h.usd.toLocaleString()}
+                      {coinDetails.details.data.market_data.low_24h.usd.toLocaleString()}
                     </span>
                     <span className="currentPrice">
                       Current: $
-                      {coinDetails.data.market_data.current_price.usd.toLocaleString()}
+                      {coinDetails.details.data.market_data.current_price.usd.toLocaleString()}
                     </span>
                     <span>
                       $
-                      {coinDetails.data.market_data.high_24h.usd.toLocaleString()}
+                      {coinDetails.details.data.market_data.high_24h.usd.toLocaleString()}
                     </span>
                   </div>
                   <input
                     type="range"
-                    min={coinDetails.data.market_data.low_24h.usd * 1000 }
-                    max={coinDetails.data.market_data.high_24h.usd * 1000 }
-                    value={coinDetails.data.market_data.current_price.usd * 1000 }
+                    min={coinDetails.details.data.market_data.low_24h.usd * 1000 }
+                    max={coinDetails.details.data.market_data.high_24h.usd * 1000 }
+                    value={coinDetails.details.data.market_data.current_price.usd * 1000 }
                     className="slider priceSlider"
                     id="myRange"
                   />
@@ -119,7 +119,7 @@ const CoinDetails = ({
                         <strong> Coin:</strong>
                       </Col>
                       <Col xs={7} className="pl-0">
-                        {coinDetails.data.name} ({coinDetails.data.symbol})
+                        {coinDetails.details.data.name} ({coinDetails.details.data.symbol})
                       </Col>
                     </Row>
                     <Row className="mb-2">
@@ -130,7 +130,7 @@ const CoinDetails = ({
                         <strong> ATH:</strong>
                       </Col>
                       <Col xs={7} className="pl-0">
-                        {coinDetails.data.market_data.ath.usd.toLocaleString()}{" "}
+                        {coinDetails.details.data.market_data.ath.usd.toLocaleString()}{" "}
                       </Col>
                     </Row>
                     <Row className="mb-2">
@@ -141,7 +141,7 @@ const CoinDetails = ({
                         <strong> Market Cap Rank:</strong>
                       </Col>
                       <Col xs={7} className="pl-0">
-                        {coinDetails.data.market_cap_rank}{" "}
+                        {coinDetails.details.data.market_cap_rank}{" "}
                       </Col>
                     </Row>
                     <Row className="mb-2">
@@ -153,7 +153,7 @@ const CoinDetails = ({
                       </Col>
                       <Col xs={7} className="pl-0">
                         $
-                        {coinDetails.data.market_data.market_cap.usd.toLocaleString()}{" "}
+                        {coinDetails.details.data.market_data.market_cap.usd.toLocaleString()}{" "}
                       </Col>
                     </Row>
                     <Row className="mb-2">
@@ -165,11 +165,11 @@ const CoinDetails = ({
                       </Col>
                       <Col xs={7} className="pl-0">
                         <a
-                          href={coinDetails.data.links.homepage[0]}
+                          href={coinDetails.details.data.links.homepage[0]}
                           target="_blank"
                           className="text-decoration-none"
                         >
-                          {coinDetails.data.links.homepage[0].slice(8)}
+                          {coinDetails.details.data.links.homepage[0].slice(8)}
                         </a>
                       </Col>
                     </Row>
@@ -181,7 +181,7 @@ const CoinDetails = ({
                         <strong> Category:</strong>
                       </Col>
                       <Col xs={7} className="pl-0">
-                        {coinDetails.data.categories[0]}
+                        {coinDetails.details.data.categories[0]}
                       </Col>
                     </Row>
                     <Row className="mb-2">
@@ -192,12 +192,12 @@ const CoinDetails = ({
                         <strong> Github:</strong>
                       </Col>
                       <Col xs={7} className="pl-0">
-                        {coinDetails.data.links.repos_url.github[0] ? (
+                        {coinDetails.details.data.links.repos_url.github[0] ? (
                           <a
-                            href={coinDetails.data.links.repos_url.github[0]}
+                            href={coinDetails.details.data.links.repos_url.github[0]}
                             target="_blank" className="text-decoration-none"
                           >
-                            {coinDetails.data.links.repos_url.github[0].slice(8)}
+                            {coinDetails.details.data.links.repos_url.github[0].slice(8)}
                           </a>
                         ) : (
                           "N/A"
@@ -212,7 +212,7 @@ const CoinDetails = ({
                         <strong> Twitter followers:</strong>
                       </Col>
                       <Col xs={7} className="pl-0">
-                        {coinDetails.data.community_data.twitter_followers.toLocaleString()}
+                        {coinDetails.details.data.community_data.twitter_followers.toLocaleString()}
                       </Col>
                     </Row>
                     <Row className="mb-2">
@@ -223,7 +223,7 @@ const CoinDetails = ({
                         <strong> Reddit Post/48h:</strong>
                       </Col>
                       <Col xs={7} className="pl-0">
-                        {coinDetails.data.community_data.reddit_average_posts_48h.toLocaleString()}
+                        {coinDetails.details.data.community_data.reddit_average_posts_48h.toLocaleString()}
                       </Col>
                     </Row>
                     <Row className="mb-2">
@@ -234,7 +234,7 @@ const CoinDetails = ({
                         <strong> Developer's forks:</strong>
                       </Col>
                       <Col xs={7} className="pl-0">
-                        {coinDetails.data.developer_data.forks.toLocaleString()}
+                        {coinDetails.details.data.developer_data.forks.toLocaleString()}
                       </Col>
                     </Row>
                   </Col>
