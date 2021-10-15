@@ -65,7 +65,7 @@ export const configureStore = createStore(
   initialState,
   // process.env.REACT_APP_DEVELOPMENT
   //   ? composeEnhancers(applyMiddleware(thunk))
-  //   :
+  //   : 
   compose(applyMiddleware(thunk))
 );
 
