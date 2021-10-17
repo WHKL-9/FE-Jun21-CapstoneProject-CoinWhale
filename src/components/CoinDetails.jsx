@@ -65,7 +65,7 @@ const CoinDetails = ({
             <MyAlert/>
 
             <Row>
-              <Col xs={6}>
+              <Col xs={12} md={6}>
                 <div className="text-center pr-5">
                   <Card.Img
                     variant="top"
@@ -74,7 +74,7 @@ const CoinDetails = ({
                   />
                 </div>
               </Col>
-              <Col xs={6} className="pr-5">
+              <Col xs={12} md={6} className="pr-5">
                 <div className="slideContainer text-center">
                   <div className="d-block text-left mb-1">
                     <strong>Time frame:</strong> 24h
@@ -109,7 +109,7 @@ const CoinDetails = ({
             <Card.Body>
               <Card.Text>
                 <Row>
-                  <Col xs={6} className="pr-0 mr-0">
+                  <Col xs={12} md={6} className="pr-0 mr-0">
                     <Row className="mb-2">
                       <Col xs={5} className="d-flex justify-content-end">
                         <span className="mr-1 d-flex align-items-center">
@@ -237,7 +237,7 @@ const CoinDetails = ({
                       </Col>
                     </Row>
                   </Col>
-                  <Col xs={6} className="pr-5">
+                  <Col xs={12} md={6} className="pr-5">
                     <span>
                       <p className="d-flex flex-row align-items-center mb-0">
                         <span className="mr-1 d-flex align-items-center">

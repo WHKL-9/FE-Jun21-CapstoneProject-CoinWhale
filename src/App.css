@@ -76,6 +76,7 @@ body {
 /* My Jumbotron */
 .myJumbotron {
   background-color: #0052ff !important;
+  min-width: 100vw !important;
 }
 
 .iconsInJumbotron {
@@ -131,7 +132,7 @@ body {
 /* Homepage */
 
 .HomepageContainer {
-  width: 100vw !important;
+  width: 100vw ;
 }
 
 #coinTable {

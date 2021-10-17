@@ -25,7 +25,7 @@ const FavoriteCoins = ({ favorite, deleteCoin }) => {
     <>
       <Container className="my-5">
         <Row>
-          <Col xs={4}>
+          <Col xs={12} md={4}>
             <h4 className="text-white d-flex flex-row align-items-center">
               <span className="mr-2 d-flex align-items-center heartCoin">
                 <AiFillHeart />
@@ -69,7 +69,7 @@ const FavoriteCoins = ({ favorite, deleteCoin }) => {
                 );
               })}
           </Col>
-          <Col xs={8}>
+          <Col xs={12} md={8}>
             <LearningSection />
           </Col>
         </Row>
