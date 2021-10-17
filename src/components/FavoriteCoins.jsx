@@ -23,7 +23,7 @@ const FavoriteCoins = ({ favorite, deleteCoin }) => {
   }, []);
   return (
     <>
-      <Container className="my-5">
+      <Container className="my-5 Collection">
         <Row>
           <Col xs={12} md={4}>
             <h4 className="text-white d-flex flex-row align-items-center">

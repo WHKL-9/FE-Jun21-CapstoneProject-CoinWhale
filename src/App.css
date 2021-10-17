@@ -170,13 +170,16 @@ th {
   color: white;
   border-bottom: 1px solid black;
   margin-bottom: 1rem;
-  /* border-radius: 1rem; */
 }
 
 .tableCell:hover {
   background-color: darkgray !important;
   color: black;
 }
+.coinLink{
+  width: 100%;
+}
+
 
 /* coin Details Page */
 .coinDetailsCard {
@@ -411,4 +414,9 @@ th {
 /* Loader */
 .ContentLoader {
   height: 90vh;
+}
+
+/* Collection */
+.Collection{
+  min-height: 60vh;
 }

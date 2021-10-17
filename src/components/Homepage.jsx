@@ -75,7 +75,12 @@ const Homepage = ({ fetchCoins, coins, loading, error, fetchTweets }) => {
                         </div>
                       </Link>
                     </td>
-                    <td>{coin.symbol}</td>
+                    <Link
+                      to={`/coin/${coin.id}`}
+                      className="text-decoration-none text-white"
+                    >
+                      <td>{coin.symbol}</td>
+                    </Link>
                     <td>
                       {coin.market_data.current_price.usd.toLocaleString()}
                     </td>

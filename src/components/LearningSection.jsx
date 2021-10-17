@@ -6,6 +6,8 @@ import { fetchTweets, fetchVideos } from "../actions";
 import Typewriter from "typewriter-effect";
 import "../App.css";
 import MyYoutube from "./MyYoutube";
+import { Link } from "react-router-dom";
+
 
 const mapStateToProps = (state) => ({
   favorite: state.favorite.collection,
@@ -19,19 +21,19 @@ const mapDispatchToProps = (dispatch) => ({
 
 const LearningSection = ({ favorite, loadTweets, loadVideos, tweets }) => {
   const loadTweetsAndVideos = (query) => {
-    loadTweets(query)
-    loadVideos(query) 
-  }
+    loadTweets(query);
+    loadVideos(query);
+  };
 
   const oneFavoriteCoin = () => {
-    if (favorite.length == 1){
-      loadTweetsAndVideos(favorite[0].data.id)
+    if (favorite.length == 1) {
+      loadTweetsAndVideos(favorite[0].data.id);
     }
-  }
+  };
 
-  useEffect(()=>{
-    oneFavoriteCoin()
-  }, [favorite.length])
+  useEffect(() => {
+    oneFavoriteCoin();
+  }, [favorite.length]);
 
   const [coinNames, setCoinNames] = useState([]);
   useEffect(() => {
@@ -55,6 +57,13 @@ const LearningSection = ({ favorite, loadTweets, loadVideos, tweets }) => {
       </span>
 
       <div>
+        {
+          (favorite.length < 1 && (
+            <p className="text-white">
+              No favorite coins yet. Go to <Link to="/" className="text-decoration-none">homepage</Link> to discover your favorite coins.
+            </p>
+          ))
+        }
         {favorite.length > 0 &&
           favorite.map((coin) => {
             return (
@@ -73,7 +82,7 @@ const LearningSection = ({ favorite, loadTweets, loadVideos, tweets }) => {
       </div>
       <div className="mt-5">
         <Tweets />
-        <MyYoutube/>
+        <MyYoutube />
       </div>
     </section>
   );
