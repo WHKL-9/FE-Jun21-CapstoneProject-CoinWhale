@@ -94,7 +94,11 @@ const Homepage = ({ fetchCoins, coins, loading, error, fetchTweets }) => {
                             : "#CF202F",
                       }}
                     >
-                      {coin.market_data.price_change_percentage_24h.toLocaleString()} %
+                      {coin.market_data.price_change_percentage_24h > 0
+                        ? "+" +
+                          coin.market_data.price_change_percentage_24h.toLocaleString()
+                        : coin.market_data.price_change_percentage_24h.toLocaleString()}{" "}
+                      %
                     </td>
                     <td>{coin.market_data.market_cap.usd.toLocaleString()}</td>
                   </tr>
