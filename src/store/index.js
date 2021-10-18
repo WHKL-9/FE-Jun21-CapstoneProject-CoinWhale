@@ -68,5 +68,4 @@ export const configureStore = createStore(
     : compose(applyMiddleware(thunk))
 );
 
-// ! dont forget
 export const persistor = persistStore(configureStore);
