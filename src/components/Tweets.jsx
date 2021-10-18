@@ -1,18 +1,19 @@
-import { Card, Row, Col } from "react-bootstrap";
+import { Card, Row, Col, Container } from "react-bootstrap";
 import { FaTwitter, FaComment } from "react-icons/fa";
 import { AiOutlineRetweet } from "react-icons/ai";
 import { MdFavorite } from "react-icons/md";
 import { FiShare } from "react-icons/fi";
 import "../App.css";
 import { connect } from "react-redux";
-
+import TwitterLoader from "./TwitterLoader"
 
 const mapStateToProps = (state) => ({
   tweets: state.tweets.data.statuses,
+  tweetsLoading: state.tweets.loading,
   favorite: state.favorite.collection,
 });
 
-const Tweets = ({ tweets,favorite  }) => {
+const Tweets = ({ tweets,favorite, tweetsLoading }) => {
   return (
     <section className="mb-5">
       <span className="d-flex flex-row align-items-center mb-2">
@@ -20,6 +21,7 @@ const Tweets = ({ tweets,favorite  }) => {
         <h5 className=" ml-2 my-0 py-0 text-white">It's what's happening</h5>
       </span>
       <section className="TweetSection">
+        {tweetsLoading && <Container className="pl-4"><TwitterLoader/></Container>}
         {(favorite.length>0 && tweets) &&
           tweets.slice(0, 5).map((tweet) => (
             <Card key={tweet.id} className="TweetCard">
