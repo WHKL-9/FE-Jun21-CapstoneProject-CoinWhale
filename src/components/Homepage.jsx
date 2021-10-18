@@ -51,7 +51,7 @@ const Homepage = ({ fetchCoins, coins, loading, error, fetchTweets }) => {
                 <th>Price(USD)</th>
                 <th>Low - 24h</th>
                 <th>High - 24h</th>
-                <th>Market Cap Change 24h(USD)</th>
+                <th>Price Change - 24h</th>
                 <th>Market Cap(USD)</th>
               </tr>
             </thead>
@@ -89,12 +89,12 @@ const Homepage = ({ fetchCoins, coins, loading, error, fetchTweets }) => {
                     <td
                       style={{
                         color:
-                          coin.market_data.market_cap_change_24h > 0
+                          coin.market_data.price_change_percentage_24h > 0
                             ? "#098551"
                             : "#CF202F",
                       }}
                     >
-                      {coin.market_data.market_cap_change_24h.toLocaleString()}
+                      {coin.market_data.price_change_percentage_24h.toLocaleString()} %
                     </td>
                     <td>{coin.market_data.market_cap.usd.toLocaleString()}</td>
                   </tr>
