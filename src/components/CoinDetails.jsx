@@ -168,7 +168,7 @@ const CoinDetails = ({
                           target="_blank"
                           className="text-decoration-none"
                         >
-                          {coinDetails.details.data.links.homepage[0].slice(8)}
+                          {coinDetails.details.data.links.homepage}
                         </a>
                       </Col>
                     </Row>
