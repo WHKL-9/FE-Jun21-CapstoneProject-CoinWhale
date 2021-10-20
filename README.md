@@ -1,3 +1,10 @@
+CoinWhale is my capstone project at Strive School. What is CoinWhale? It is a Coin Market Cap clone with some social capabilities. With CoinWhale you can discover and learn something new about your favorite coins via the hottest tweets and youtube videos. Tech stacks used in this project: React, Redux, Bootstrap. 
+
+CoinWhale signifies the end of my journey at Strive School. But more importantly, it also signifies the beginning of my journey as a frontend developer. I feel incredibly proud to have achieved this much in such a short period of time (~15 weeks). To my fellow batchmates, teaching assistants and teachers from Strive School - thank you for making me a better developer and more importantly, a better person. 
+
+To view the project live, proceed to https://fe-jun21-capstone-project-coin-whale.vercel.app/. You can go to the coin details page by clicking on image or symbol of the coins in the table rows. Once you are at the specific coin page, you can click on the little whale on the top right corner to add the coin to your collection. In the end, you can proceed to the collection page to view the tweets and videos about your coins. 
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -5,6 +12,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Available Scripts
 
 In the project directory, you can run:
+
+### `npm i`
+To install all the necessary packages to run this project. 
 
 ### `npm start`
 
