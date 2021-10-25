@@ -4,6 +4,8 @@ CoinWhale signifies the end of my journey at Strive School. But more importantly
 
 To view the project live, proceed to https://fe-jun21-capstone-project-coin-whale.vercel.app/. You can go to the coin details page by clicking on image or symbol of the coins in the table rows. Once you are at the specific coin page, you can click on the little whale on the top right corner to add the coin to your collection. In the end, you can proceed to the collection page to view the tweets and videos about your coins. 
 
+WH
+
 
 # Getting Started with Create React App
 
