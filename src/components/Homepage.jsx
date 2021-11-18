@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { connect } from "react-redux";
-import { fetchCoinData, fetchTweets } from "../actions";
+import { fetchCoinData } from "../actions";
 import { Container, Table, Button } from "react-bootstrap";
 import "../App.css";
 import { Link } from "react-router-dom";
@@ -15,7 +15,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   fetchCoins: () => dispatch(fetchCoinData()),
-  fetchTweets: () => dispatch(fetchTweets()),
+  // fetchTweets: () => dispatch(fetchTweets()),
 });
 
 const Homepage = ({ fetchCoins, coins, loading, error, fetchTweets }) => {
@@ -23,13 +23,10 @@ const Homepage = ({ fetchCoins, coins, loading, error, fetchTweets }) => {
     fetchCoins();
   }, []);
 
-  const rounded = (number) => {
-    return Math.round((number + Number.EPSILON) * 100) / 100;
-  };
 
-  useEffect(() => {
-    fetchTweets();
-  }, []);
+  // useEffect(() => {
+  //   fetchTweets();
+  // }, []);
 
   return (
     <>
@@ -82,10 +79,10 @@ const Homepage = ({ fetchCoins, coins, loading, error, fetchTweets }) => {
                       <td>{coin.symbol}</td>
                     </Link>
                     <td>
-                      {coin.market_data.current_price.usd.toLocaleString()}
+                      {coin.market_data.current_price.usd.toString().toLocaleString()}
                     </td>
-                    <td>{coin.market_data.low_24h.usd.toLocaleString()}</td>
-                    <td>{coin.market_data.high_24h.usd.toLocaleString()}</td>
+                    <td>{coin.market_data.low_24h.usd.toString().toLocaleString()}</td>
+                    <td>{coin.market_data.high_24h.usd.toString().toLocaleString()}</td>
                     <td
                       style={{
                         color:
