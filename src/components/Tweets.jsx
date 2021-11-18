@@ -31,6 +31,7 @@ const Tweets = ({ tweets,favorite, tweetsLoading }) => {
                     <img
                       src={tweet.user.profile_image_url}
                       className="UserImage mx-auto"
+                      alt="userImage"
                     />
                   </div>
                 </Col>

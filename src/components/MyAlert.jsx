@@ -4,7 +4,6 @@ import "../App.css";
 import { connect } from "react-redux";
 import { addCoinToFavorite } from "../actions";
 import { deleteCoinFromFavorite } from "../actions";
-import { IoRemoveCircle } from "react-icons/io5";
 import {Link} from "react-router-dom"
 
 const mapStateToProps = (state) => ({

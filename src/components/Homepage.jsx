@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { connect } from "react-redux";
 import { fetchCoinData } from "../actions";
-import { Container, Table, Button } from "react-bootstrap";
+import { Container, Table } from "react-bootstrap";
 import "../App.css";
 import { Link } from "react-router-dom";
 import MyLoader from "./Loader";

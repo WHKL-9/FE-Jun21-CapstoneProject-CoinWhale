@@ -4,13 +4,11 @@ import {
   BrowserRouter as Router,
   Route,
   Switch,
-  Redirect,
 } from "react-router-dom";
 import Homepage from "./components/Homepage";
 import MyFooter from "./components/MyFooter";
 import CoinDetails from "./components/CoinDetails";
 import FavoriteCoins from "./components/FavoriteCoins";
-import { useEffect } from "react";
 
 function App() {
   return (

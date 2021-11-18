@@ -26,7 +26,7 @@ const LearningSection = ({ favorite, loadTweets, loadVideos, tweets }) => {
   };
 
   const oneFavoriteCoin = () => {
-    if (favorite.length == 1) {
+    if (favorite.length === 1) {
       loadTweetsAndVideos(favorite[0].data.id);
     }
   };

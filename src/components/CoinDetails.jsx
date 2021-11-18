@@ -1,4 +1,4 @@
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { fetchCoinDetails, addCoinToFavorite } from "../actions";
 import { useEffect } from "react";
 import { connect } from "react-redux";
