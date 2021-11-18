@@ -9,7 +9,6 @@ import favoriteReducer from "../reducers/favorite";
 import tweetsReducer from "../reducers/twitter";
 import youtubeReducer from "../reducers/youtube";
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
 
 // declaring the initial state
 export const initialState = {
@@ -59,14 +58,15 @@ const bigReducer = combineReducers({
 });
 
 const persistedReducer = persistReducer(persistConfig, bigReducer);
+const composeEnhancers =   window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ?
+    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({}):compose
+const enhancer = composeEnhancers(applyMiddleware(thunk))
 
 export const configureStore = createStore(
   persistedReducer,
   initialState,
-  // process.env.REACT_APP_DEVELOPMENT
-  //   ? composeEnhancers(applyMiddleware(thunk))
-  //   : 
-  compose(applyMiddleware(thunk))
+  enhancer
 );
 
 export const persistor = persistStore(configureStore);
+
