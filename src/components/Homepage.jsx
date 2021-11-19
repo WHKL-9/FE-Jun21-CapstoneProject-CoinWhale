@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { connect } from "react-redux";
-import { fetchCoinData } from "../actions";
+import { fetchCoinData, fetchTweets} from "../actions";
 import { Container, Table } from "react-bootstrap";
 import "../App.css";
 import { Link } from "react-router-dom";
@@ -15,7 +15,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   fetchCoins: () => dispatch(fetchCoinData()),
-  // fetchTweets: () => dispatch(fetchTweets()),
+  fetchTweets: () => dispatch(fetchTweets()),
 });
 
 const Homepage = ({ fetchCoins, coins, loading, error, fetchTweets }) => {
@@ -24,9 +24,9 @@ const Homepage = ({ fetchCoins, coins, loading, error, fetchTweets }) => {
   }, []);
 
 
-  // useEffect(() => {
-  //   fetchTweets();
-  // }, []);
+  useEffect(() => {
+    fetchTweets();
+  }, []);
 
   return (
     <>

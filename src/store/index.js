@@ -49,6 +49,7 @@ const persistConfig = {
   ],
 };
 
+
 const bigReducer = combineReducers({
   coins: coinSearchReducer,
   coinDetails: specificCoinReducer,

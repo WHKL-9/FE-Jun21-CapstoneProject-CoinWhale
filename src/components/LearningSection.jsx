@@ -58,7 +58,7 @@ const LearningSection = ({ favorite, loadTweets, loadVideos, tweets }) => {
 
       <div>
         {
-          (favorite.length < 1 && (
+          (favorite.length < 1 && tweets.length<1 && (
             <p className="text-white">
               No favorite coins yet. Go to <Link to="/" className="text-decoration-none">homepage</Link> to discover your favorite coins.
             </p>
